@@ -1,3 +1,11 @@
+## The Goal
+
+Quickly adapt the thirdweb starter template to be perfect for the home page of D-Deuce.
+
+- [ ] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
+- [ ] load the game page wrapped in thirdweb
+- [ ]
+
 ## Getting Started
 
 Create a project using this example:

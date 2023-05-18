@@ -1,0 +1,43 @@
+{
+  "deck": [
+    {
+      "id": 1,
+      "type": "character",
+      "name": "Wingbird",
+      "description": "A swift and agile character known for their quick thinking and faster actions.",
+      "image": "wingbird.jpg",
+      "attributes": {
+        "power": 6,
+        "defense": 4
+      },
+      "ability": "Quick Strike: Wingbird can make the first move in a duel."
+    },
+    {
+      "id": 2,
+      "type": "location",
+      "name": "Mountain Top",
+      "description": "A lofty location with breathtaking views and strategic high ground.",
+      "image": "mountaintop.jpg",
+      "attributes": {
+        "defense_bonus": 2
+      },
+      "ability": "High Ground: All characters on Mountain Top gain +2 Defense."
+    },
+    {
+      "id": 0,
+      "type": "things",
+      "name": "egg",
+      "description": "A good egg.",
+      "image": "egg.jpg",
+      "attributes": {
+        "attack_bonus": 1,
+        "hatchable": "Wingbird"
+      },
+      "ability": "Eggcellent: All characters with an egg gain +1 Attack. Burn to hatch a Wingbird."
+    }
+  ],
+  "deckname": "PT4's Deck",
+  "deckdescription": "A deck of cards suggested by PT4 to begin the with practical and simple tests.",
+  "creator": "Tippi & PT4",
+  "version": "1.0.0"
+}
