@@ -1,6 +1,5 @@
-import { getDeck } from "../../utils/deck";
+const deck = require("../../utils/deck.json");
 
 export default async function handler(req, res) {
-  const deck = await getDeck();
   res.status(200).json(deck);
 }

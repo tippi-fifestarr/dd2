@@ -1,6 +1,7 @@
 // pages/play.js
 import { useState } from "react";
 import Image from "next/image";
+import { getDeck } from "../utils/deck";
 // import Nav from "../components/nav";
 
 function Play({ deck }) {
@@ -60,9 +61,19 @@ function Play({ deck }) {
 }
 
 // Fetch your deck data from the API
+// export async function getStaticProps() {
+//   const res = await fetch("/api/deck");
+//   const deck = await res.json();
+
+//   return {
+//     props: {
+//       deck,
+//     },
+//   };
+// }
+
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/deck");
-  const deck = await res.json();
+  const deck = await getDeck();
 
   return {
     props: {
