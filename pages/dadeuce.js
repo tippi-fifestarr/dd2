@@ -9,7 +9,7 @@ import { gorditas, oswald, frijole, islandMoments } from "./layout";
 import Tipsbox from "./tipsbox";
 import CardDetail from "./cardDetail";
 import { Constants } from "./CONSTANTS";
-import Sound from "./sound";
+import Sound from "../components/sound";
 import StartModal from "./startModal";
 
 export default function Home() {

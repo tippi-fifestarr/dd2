@@ -1,5 +1,3 @@
-"use client";
-import { gorditas } from "../layout";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
