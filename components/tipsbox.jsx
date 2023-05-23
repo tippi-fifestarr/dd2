@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useEffect } from "react";
 
@@ -58,7 +58,7 @@ export default function Tipsbox({
           <div
             className={`text-xs md:text-base lg:text-lg text-slate-200 p-0.5 md:p-1 lg:p-2`}
           >
-            🤩 now, you can double click to "flip" a card. Eliminate!
+            🤩 now, you can double click to &quot;flip&quot; a card. Eliminate!
           </div>
           <div className="text-xs md:text-base lg:text-lg text-slate-200 p-0.5 md:p-1 lg:p-2">
             {cardsRemaining >= 18

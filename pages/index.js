@@ -1,5 +1,6 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -37,21 +38,21 @@ export default function Home() {
             <p>DaDeuce DeDuece DoDeaux D-Deux D.Duce DiDoose</p>
           </a>
           {/* want to use Link bc internal links */}
-          <a href="/play" className={styles.card}>
+          <Link href="/play" className={styles.card}>
             <h2>DD OG Default Deck 🎴 &rarr;</h2>
             <p>
               If no deck: &quot;Collect and play with the *OG Web3 DD, free
               forever!*&quot; if OGDD: &quot;Play now with the OG Web3 DD!&quot;
             </p>
-          </a>
+          </Link>
           {/* want to use Link bc internal links */}
-          <a href="/more" className={styles.card}>
+          <Link href="/more" className={styles.card}>
             <h2>More Decks ☄️ &rarr;</h2>
             <p>
               Create your own deck, or collect more decks from the marketplace!
               (Coming soon)
             </p>
-          </a>
+          </Link>
         </div>
       </main>
     </div>

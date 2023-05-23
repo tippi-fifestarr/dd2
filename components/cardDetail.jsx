@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -37,13 +36,13 @@ export default function CardDetail({
             {!cardSelected ? (
               <p>
                 DaDeuce Placehold is known for **holding a place**, click a card
-                to see more details here, double click once you've chosen your
-                character!
+                to see more details here, double click once you&#39;ve chosen
+                your character!
               </p>
             ) : (
               <>
                 <p>
-                  You've clicked on <b> {selectedCard.name}, </b>{" "}
+                  You&#39;ve clicked on <b> {selectedCard.name}, </b>{" "}
                   <b>
                     {" "}
                     {selectedCard.known_for[0].name
