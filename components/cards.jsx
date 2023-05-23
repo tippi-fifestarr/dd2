@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import Person from "./person";
 import { Constants } from "../utils/CONSTANTS";
