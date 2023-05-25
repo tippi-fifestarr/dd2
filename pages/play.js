@@ -2,44 +2,26 @@
 import { useState } from "react";
 import Image from "next/image";
 import { getDeck } from "../utils/deck";
+import CardDetail from "../components/CardDetail3";
 // import Nav from "../components/nav";
 
 function Play({ deck }) {
   // We'll keep track of the currently selected card in state
   const [selectedCard, setSelectedCard] = useState(null);
+  const [cardSelected, setCardSelected] = useState(false);
+
+  const handleClick = (selectedCard) => {
+    setCardSelected(true);
+    setSelectedCard(selectedCard);
+  };
 
   return (
     <>
-      {/* <main>
-        <Nav
-          chosenCard={chosenCard}
-          isNewLevel={isNewLevel}
-          setNewLevel={setNewLevel}
-          isMuted={isMuted}
-          setIsMuted={setIsMuted}
-          selectedSongIndex={selectedSongIndex}
-          songs={songs}
-          sfxIndex={sfxIndex}
-          setSfxIndex={setSfxIndex}
-          volume={volume}
-        />
-      </main> */}
       <div className="flex flex-col items-center">
         {/* Detail viewer */}
+
         {selectedCard && (
-          <div className="p-4 m-4 border border-gray-200 rounded shadow">
-            <h2 className="text-xl font-bold font-gorditas">
-              {selectedCard.name}
-            </h2>
-            <p>{selectedCard.description}</p>
-            <Image
-              src={selectedCard.image}
-              alt={selectedCard.name}
-              width={256}
-              height={256}
-            />
-            {/* Other card details... */}
-          </div>
+          <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
         )}
 
         {/* Gameboard */}
@@ -48,7 +30,7 @@ function Play({ deck }) {
             <div
               key={card.id}
               className="p-4 border border-gray-200 rounded shadow cursor-pointer"
-              onClick={() => setSelectedCard(card)}
+              onClick={() => handleClick(card)}
             >
               <h2 className="text-lg font-bold">{card.name}</h2>
               {/* Other card details... */}

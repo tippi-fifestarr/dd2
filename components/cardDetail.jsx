@@ -1,11 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 
-export default function CardDetail({
-  selectedCard,
-  cardSelected,
-  contractMeta,
-}) {
+export default function CardDetail({ selectedCard, cardSelected }) {
   // render the card detail
   let imagePath = "http://image.tmdb.org/t/p/original";
 
@@ -24,7 +20,7 @@ export default function CardDetail({
               // src={chosenCard} // image of selected card
               alt={
                 !cardSelected
-                  ? `image of a ${contractMeta.name} DaDeuce Placehold who is known for holding a place`
+                  ? `image of a DaDeuce Placehold who is known for holding a place`
                   : `image of ${selectedCard.name} who is known for ${selectedCard.known_for[0].name}`
               }
               className="object-cover h-36 md:h-44 w-fit rounded-l-md"

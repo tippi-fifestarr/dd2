@@ -1,23 +1,37 @@
 ## The Goal
 
-Quickly adapt the thirdweb starter template to be perfect for the home page of D-Deuce.
+Quickly adapt the [thirdweb starter template](https://next-javascript-starter.thirdweb-example.com/) to be perfect for the home page of D-Deuce.
+
+Step 1. Start Screen.
+
+1. Play => Access Key => Choose a Deck
+2. Vote (disabled) => DaDeux? DeDeuce? => Optimistic Governance with Veto
+3. Create => Contribute/Apply => Coming soon
 
 - [ ] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
-- [ ] load the game page wrapped in thirdweb
-- [ ]
+- [x] load the game page wrapped in thirdweb
+- [ ] enable the claim button for access key (link to gitbooks documentation)
+- [ ] conditionally render "choose a deck" if user has access key
+- [ ] visually & functionally disable placeholder buttons
+- [ ] merge with original dd repo (web3 branch?)?
+- [ ] outro music video in the "detail view" (image and text on time with music)
+- [ ] decide on an open-source license (it should be easy to contribute to and repurpose, but I don't want someone to take this idea and code and compete against me or trick people, which is why we need public ledger of the official spellings for the name of DaDeuce)
+- [ ] write warning for deck uploader that ownership rules haven't been finalized
+- [ ] add the UNOFFICIAL deck creator function
+- [ ] Post to Lens
 
 ## Getting Started
 
-Create a project using this example:
-
-```bash
-npx thirdweb create --template next-javascript-starter
-```
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
 On `pages/_app.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
 [UI Components](https://portal.thirdweb.com/ui-components) to work.
+
+- [ ] Get the thing running, yarn install & yarn dev
+- [ ] Look over the code and get a sense of how things flow for the user
+- [ ] Check out **the goal** above to find an unfinished goal to get started on
+- [ ] Announce to the team somehow (Discord or here in GH) that you're starting
+- [ ] Check back for feedback and update us...
+
+> useful guidance from Thirdweb can be found in the Discord and throughout their blog and documentation. <br> https://blog.thirdweb.com/guides/early-access-nft-with-typescript/ <br> https://portal.thirdweb.com/auth/how-auth-works/sign-in-with-wallet
 
 ### Deploy to IPFS
 
