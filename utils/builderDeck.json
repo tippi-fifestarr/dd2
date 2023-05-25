@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Define the Deck",
+    "description": "Define the structure of your card deck.",
+    "longDescription": "This includes the character and location cards with their respective attributes and descriptions.",
+    "status": "in progress"
+  },
+  {
+    "id": 2,
+    "name": "Card Selection and Confirmation",
+    "description": "Implement card selection and confirmation.",
+    "longDescription": "Allow players to pick a card from the deck and provide a mechanism to confirm the selection. The chosen card details should be hidden from the other player.",
+    "status": "completed"
+  },
+  {
+    "id": 3,
+    "name": "Rounds of Yes/No Questions",
+    "description": "Create rounds for yes/no questions.",
+    "longDescription": "Implement a round-based system where players take turns asking yes/no questions. When the player is about to flip the second to last card, that if they were wrong something went wrong. We aren't tracking the players questions at first, although an AI could be trained to guess which question.  Maybe the user has only 20 seconds to flip cards after they start flipping a card (this is a question).",
+    "status": "todo"
+  },
+  {
+    "id": 4,
+    "name": "Special Question Mechanism",
+    "description": "Implement the special question mechanism.",
+    "longDescription": "Implement the special questions that affect a group of cards, either based on location in the game board or some attribute. Create a mechanism that restricts the usage of each special question to once per game. Most importantly, visualize it on the UI to remind the players that they have these powers.",
+    "status": "todo"
+  },
+  {
+    "id": 5,
+    "name": "Card Elimination System",
+    "description": "Implement a card elimination system.",
+    "longDescription": "Create a system for players to eliminate cards that don't match the responses to the yes/no questions and special questions. The elimination should be visualized in the UI, for example by graying out eliminated cards.",
+    "status": "in progress"
+  },
+  {
+    "id": 6,
+    "name": "Guessing Phase",
+    "description": "Implement the guessing phase.",
+    "longDescription": "Once a player thinks they know the other player's card, they should have the option to make a guess. If the guess is correct, they win the round. If not, submit a bug report (of your questions and discuss with each other why it happened). For the demo version, the game ends after two rounds and lets you mint your match history",
+    "status": "todo"
+  },
+  {
+    "id": 7,
+    "name": "UI/UX Enhancements",
+    "description": "Improve the UI/UX.",
+    "longDescription": "Improve the game board and card details presentation. Create a more engaging and intuitive UI for players to interact with the game.",
+    "status": "in progress"
+  },
+  {
+    "id": 8,
+    "name": "Play Testing and Iteration",
+    "description": "Regularly playtest the game.",
+    "longDescription": "Find areas of improvement or any bugs and iterate on the game based on feedback from playtesting.",
+    "status": "completed"
+  }
+]
