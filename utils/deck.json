@@ -172,14 +172,14 @@
     {
       "id": 10,
       "type": "location",
-      "location": "In Space, Very Very Far Away",
+      "location": "Very Very Far Away",
       "team": "Muso",
       "name": "The Double Deuce",
       "weapon": "Thermal Detonator",
-      "description": "If you aren’t nice, we’ll ask you to leave. Timeless Music Bar.",
+      "description": "Cosmic tunes + harmonious drinks = one 'galactic' box social.",
       "image_provenance": "Tippi + Stable Diffusion",
       "image": "/images/double_deuce.png",
-      "catchphrase": "Live music!",
+      "catchphrase": "Blasters down, volume up!",
       "attributes": {
         "defense_bonus": 2,
         "armor": 2
