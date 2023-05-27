@@ -25,14 +25,23 @@ function Play({ deck }) {
         )}
 
         {/* Gameboard */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-5 gap-2">
           {deck.cards.map((card) => (
             <div
               key={card.id}
-              className="p-4 border border-gray-200 rounded shadow cursor-pointer"
+              className="flex flex-col p-1 border-2 border-slate-200 rounded-md shadow cursor-pointer overflow-clip justify-center"
               onClick={() => handleClick(card)}
             >
-              <h2 className="text-lg font-bold">{card.name}</h2>
+              <h2 className="text-xs sm:text-sm w-20 sm:w-24 text-center font-gorditas">
+                {card.name}
+              </h2>
+              <Image
+                src={card.image}
+                alt={card.name + ", " + card.image_provenance}
+                width={55}
+                height={55}
+                className="rounded-md self-center"
+              />
               {/* Other card details... */}
             </div>
           ))}

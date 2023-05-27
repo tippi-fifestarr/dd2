@@ -10,9 +10,13 @@ const Nft = () => {
   const { data: nft } = useNFT(editionDrop, 0);
 
   return (
-    <div style={{ margin: "10vh" }}>
-      <h1>My NFT</h1>
-      {nft && <ThirdwebNftMedia metadata={nft?.metadata} />}
+    <div>
+      <h1 className="font-gorditas text-lg text-center">
+        OG Access Key: Forever Free!
+      </h1>
+      {nft && (
+        <ThirdwebNftMedia metadata={nft?.metadata} className="rounded-xl" />
+      )}
     </div>
   );
 };

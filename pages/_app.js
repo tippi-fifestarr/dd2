@@ -24,9 +24,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider activeChain={activeChain}>
       <Head>
-        <title>D=D Access Page</title>
+        <title>DDEUX Access Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="DaDeuce, and you can too!" />
+        <meta
+          name="description"
+          content="Deduce their DaDeuce, and you can too!"
+        />
         <meta
           name="keywords"
           content="DaDeuce, Thirdweb, Web3, NFT, DAO, DeDeux"

@@ -29,12 +29,12 @@ const ClaimButton = () => {
         <button
           disabled={claiming}
           style={{
-            padding: "10px 20px",
+            padding: "12px 20px",
             textAlign: "center",
             backgroundColor: "#05A266",
             color: "white",
           }}
-          className="btn"
+          className="btn rounded-lg m-1"
           onClick={onClick}
         >
           {claiming ? "Claiming..." : "Claim Early Access NFT"}
