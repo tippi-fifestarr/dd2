@@ -1,6 +1,8 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import ClaimButton from "../components/ClaimButton";
+import Nft from "../components/Nft";
 
 export default function Home() {
   return (
@@ -14,6 +16,10 @@ export default function Home() {
           ! Thirdweb Access Page
         </h1>
 
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <Nft />
+          <ClaimButton />
+        </div>
         <p className={styles.description}>
           If you have a wallet, connect to claim your Access Key{" "}
           <code className={styles.code}>currently on Mumbai testnet</code>, then
@@ -46,7 +52,10 @@ export default function Home() {
             </p>
           </Link>
           {/* want to use Link bc internal links */}
-          <Link href="/more" className={styles.card}>
+          <Link
+            href="https://github.com/tippi-fifestarr/dd2/tree/claim"
+            className={styles.card}
+          >
             <h2>More Decks ☄️ &rarr;</h2>
             <p>
               Create your own deck, or collect more decks from the marketplace!
