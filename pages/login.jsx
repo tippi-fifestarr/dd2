@@ -9,7 +9,7 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>Auth - NFT Gated Content</h1>
+      <h1 className={styles.h1}>LOGIN Auth - NFT Gated Content</h1>
       <p className={styles.explain}>
         Serve exclusive content to users who own an NFT from your collection,
         using{" "}

@@ -27,6 +27,26 @@ export default function Home() {
       <button className={styles.mainButton} onClick={logout}>
         Logout
       </button>
+      {/* link to https://dd2-smoky.vercel.app/play */}
+      <br />
+      <a
+        href="https://dd2-smoky.vercel.app/play"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.mainButton}
+      >
+        DDEUX/Play
+      </a>
+      {/* link in style of mainbutton to the guide i wrote about building the ddeuce https://fifestarr-d-gitbook.gitbook.io/fifestarr-d-gitbook/dashboard-or-sdk-nft-access-key-for-dumdums-how-to-guide-devrel-uni-part-1 */}
+      <br />
+      <a
+        href="https://fifestarr-d-gitbook.gitbook.io/fifestarr-d-gitbook/dashboard-or-sdk-nft-access-key-for-dumdums-how-to-guide-devrel-uni-part-1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.mainButton}
+      >
+        DDocumentation
+      </a>
     </div>
   );
 }
