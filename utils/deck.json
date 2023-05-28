@@ -8,7 +8,9 @@
       "origin": "China",
       "description": "Fan of fun technology currency, oh yeah.",
       "image": "/images/elon_ma.png",
+      "image_provenance": "Elon Ma's Instagram",
       "catchphrase": "I need a better catchphrase.",
+      "weapon": "Pocket Rocket",
       "attributes": {
         "mental": 2,
         "magic": 1,
@@ -23,9 +25,12 @@
       "team": "Mage",
       "name": "Chalice",
       "origin": "Driver",
+      "weapon": "We are the weapon.",
       "description": "Chalice, a self-aware car, and her current driver.",
       "image": "/images/chalice.png",
-      "catchphrase": "Beep beep, vrooom, bitch.",
+
+      "image_provenance": "Joanna WeChat",
+      "catchphrase": "Beep beep, vrooom, baby.",
       "attributes": {
         "mental": 0,
         "magic": 2,
@@ -41,7 +46,9 @@
       "name": "Discordian",
       "origin": "Chicago",
       "description": "Likes disco.",
+      "weapon": "Magic Spellbook",
       "image": "/images/discordian.png",
+      "image_provenance": "Tippi + Stable Diffusion",
       "catchphrase": "Nobody ever wins a fight... unless we dance?",
       "attributes": {
         "mental": 1,
@@ -57,8 +64,10 @@
       "team": "Mage",
       "name": "咪喵",
       "origin": "Canton.cn",
+      "weapon": "Ice freeze",
       "description": "A sweet and sad cat, fast when mad.",
       "image": "/images/mimiao.png",
+      "image_provenance": "Arien + PS",
       "catchphrase": "Where am I?",
       "attributes": {
         "mental": 1,
@@ -71,13 +80,17 @@
     {
       "id": 5,
       "type": "location",
+      "location": "Chicago",
       "team": "Mage",
       "name": "Cybernetic Chicago",
+      "weapon": "Firewall",
       "description": "After 2023, North American cyber-innovation hub.",
       "image": "/images/chicagosml.png",
+      "image_provenance": "Tippi + Stable Diffusion",
       "catchphrase": "Bears, Hawks, Sox, Bulls.",
       "attributes": {
-        "defense_bonus": 2
+        "defense_bonus": 2,
+        "armor": 2
       }
     },
     {
@@ -88,6 +101,8 @@
       "origin": "California/Canada",
       "description": "Golden voiced funny man.",
       "image": "/images/JB.png",
+      "weapon": "ExplosiVoice",
+      "image_provenance": "Danjo + Midjourney",
       "catchphrase": "I'm just a baby, baby, oOoo.",
       "attributes": {
         "mental": 2,
@@ -105,6 +120,8 @@
       "origin": "Chesterland, OH",
       "description": "Funky French Bounty Hunter.",
       "image": "/images/banjolorian.png",
+      "weapon": "Banjo Blaster",
+      "image_provenance": "Danjo + Midjourney",
       "catchphrase": "Harder, better, faster, stronger.",
       "attributes": {
         "mental": 1,
@@ -121,6 +138,8 @@
       "name": "Funky the Dog",
       "origin": "Qingdao",
       "description": "Smart, psychic, with incredible rhythm.",
+      "weapon": "Radiohowl",
+      "image_provenance": "Tippi's camera",
       "image": "/images/funky.png",
       "catchphrase": ":P",
       "attributes": {
@@ -137,8 +156,10 @@
       "team": "Muso",
       "name": "Jenny in the Rearview",
       "origin": "China",
+      "weapon": "Intergalactic Sound System",
       "description": "AI, fast, musical, cute, has a spaceship that's AI.",
       "image": "/images/jenny.png",
+      "image_provenance": "Jenny's Selfie + Tippi's AI",
       "catchphrase": "手机高手.",
       "attributes": {
         "mental": 2,
@@ -151,13 +172,17 @@
     {
       "id": 10,
       "type": "location",
+      "location": "Very Very Far Away",
       "team": "Muso",
       "name": "The Double Deuce",
-      "description": "If you aren’t nice, we’ll ask you to leave. Timeless Music Bar.",
+      "weapon": "Thermal Detonator",
+      "description": "Cosmic tunes + harmonious drinks = one 'galactic' box social.",
+      "image_provenance": "Tippi + Stable Diffusion",
       "image": "/images/double_deuce.png",
-      "catchphrase": "Live music!",
+      "catchphrase": "Blasters down, volume up!",
       "attributes": {
-        "defense_bonus": 2
+        "defense_bonus": 2,
+        "armor": 2
       }
     },
     {
@@ -166,8 +191,10 @@
       "team": "Demon",
       "name": "Devils Discer",
       "origin": "Unknown",
+      "weapon": "Disc of Doom",
       "description": "An ultimate frisbee loving evil liar.",
       "image": "/images/discer.png",
+      "image_provenance": "Tippi + Stable Diffusion",
       "catchphrase": "Catch this!",
       "attributes": {
         "mental": 2,
@@ -183,13 +210,15 @@
       "team": "Demon",
       "name": "Lazy P",
       "origin": "Unknown",
-      "description": "Vape smoking lazy guy with an axe.",
+      "weapon": "Rusty Axe",
+      "description": "Vape smoking, dank vibes; has axe, will chop.",
       "image": "/images/lazy_p.png",
-      "catchphrase": "Chill, it's just a game.",
+      "image_provenance": "Tippi + Pat + Stable Diffusion",
+      "catchphrase": "Chill bro, it's just a game.",
       "attributes": {
         "mental": 1,
         "magic": 1,
-        "physical": 2,
+        "physical": 1,
         "health": 3,
         "armor": 2
       }
@@ -198,17 +227,19 @@
       "id": 13,
       "type": "character",
       "team": "Demon",
-      "name": "Poly Satin",
+      "name": "Satinopoly",
       "origin": "Unknown",
-      "description": "Polyamorous ai assistant / boss b****.",
+      "description": "Polyamorous AI assistant / boss b****.",
       "image": "/images/poly_ai.png",
+      "image_provenance": "Creatjve + Midjourney",
       "catchphrase": "Love is a many sided thing.",
+      "weapon": "Quantum Polycule",
       "attributes": {
         "mental": 2,
-        "magic": 2,
+        "magic": 0,
         "physical": 1,
         "health": 2,
-        "armor": 2
+        "armor": 1
       }
     },
     {
@@ -218,10 +249,12 @@
       "name": "Evil Ape",
       "origin": "Unknown",
       "description": "A bored ape NFT with flaming hair and sunglasses.",
+      "weapon": "Diamond Hands",
       "image": "/images/evil_ape.png",
-      "catchphrase": "Bored yet?",
+      "image_provenance": "Tippi + Stable Diffusion",
+      "catchphrase": "Bored yet? HODL.",
       "attributes": {
-        "mental": 1,
+        "mental": 0,
         "magic": 1,
         "physical": 3,
         "health": 2,
@@ -231,13 +264,17 @@
     {
       "id": 15,
       "type": "location",
+      "location": "California",
       "team": "Demon",
       "name": "Cabin on the Mountain",
+      "weapon": "Dirty Dishes",
       "description": "Evil headquarters with amazing view and regenerative powers.",
       "image": "/images/cabin.png",
+      "image_provenance": "Tippi + Stable Diffusion",
       "catchphrase": "Welcome to our humble abode.",
       "attributes": {
-        "defense_bonus": 3
+        "defense_bonus": 3,
+        "armor": 1
       }
     },
     {
@@ -247,14 +284,16 @@
       "name": "Aire",
       "origin": "Unknown",
       "description": "With the clipboard reflection power and wings.",
+      "weapon": "[x] Clipboard!",
       "image": "/images/aire.png",
-      "catchphrase": "Clipboard, don't fail me now!",
+      "image_provenance": "Aire's LinkedIn + Tippi + Stable Diffusion",
+      "catchphrase": "Are you ready to die?",
       "attributes": {
         "mental": 2,
         "magic": 2,
         "physical": 1,
-        "health": 2,
-        "armor": 1
+        "health": 1,
+        "armor": 2
       }
     },
     {
@@ -264,13 +303,15 @@
       "name": "Arien",
       "origin": "Unknown",
       "description": "AI hacker can’t fly but will hit you with a yoga mat.",
+      "weapon": "Yoga Mat",
       "image": "/images/arien.png",
+      "image_provenance": "Arien's WeChat",
       "catchphrase": "You're about to get served... some code!",
       "attributes": {
         "mental": 3,
-        "magic": 2,
+        "magic": 1,
         "physical": 1,
-        "health": 1,
+        "health": 2,
         "armor": 1
       }
     },
@@ -278,16 +319,20 @@
       "id": 18,
       "type": "character",
       "team": "Angel",
-      "name": "师傅",
+      "name": "师父",
       "origin": "Unknown",
-      "description": "Taiqi qigong shifu, can shoot energy balls, super cool, can eat a lot of dumplings.",
+      "description": "Tippi's Taiji qigong shifu, really good guy.",
+      "weapon": "Energy Whip",
       "image": "/images/shifu.png",
-      "catchphrase": "Energy ball, go!",
-      "mental": 2,
-      "magic": 3,
-      "physical": 1,
-      "health": 2,
-      "armor": 0
+      "image_provenance": "Photo by Chris Noseworthy",
+      "catchphrase": "Relax, ping pong, relax!",
+      "attributes": {
+        "mental": 2,
+        "magic": 3,
+        "physical": 1,
+        "health": 2,
+        "armor": 0
+      }
     },
     {
       "id": 19,
@@ -295,8 +340,10 @@
       "team": "Angel",
       "name": "Unknown Animal",
       "origin": "Unknown",
+      "weapon": "Celestial Power",
       "description": "A mysterious animal with celestial power.",
       "image": "/images/mystery.png",
+      "image_provenance": "Tippi + Stable Diffusion",
       "catchphrase": "?",
       "attributes": {
         "mental": 2,
@@ -309,18 +356,22 @@
     {
       "id": 20,
       "type": "location",
+      "location": "Midland, Ontario",
       "team": "Angel",
       "name": "The Cloud",
+      "weapon": "Celestial Power",
       "description": "Cloud location for the angels.",
       "image": "/images/cloud.png",
+      "image_provenance": "Tippi's camera",
       "catchphrase": "Heaven's not far away.",
       "attributes": {
-        "defense_bonus": 2
+        "defense_bonus": 2,
+        "armor": 0
       }
     }
   ],
-  "deckname": "OG Default Deck",
+  "deckname": "0G Default Deck",
   "deckdescription": "Official Default Deck",
   "creator": "Tippi Fifestarr",
-  "version": "1.0.0"
+  "version": "2.0.0"
 }
