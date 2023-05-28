@@ -43,10 +43,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-function Component() {
-  const { contract, isLoading } = useContract(
-    "0xe003E4487f62cf8fa6a84C517293780b85aedb86"
-  );
-}
-
 export default MyApp;
