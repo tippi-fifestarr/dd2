@@ -44,7 +44,10 @@ export default function Home() {
             <p>DaDeuce DeDuece DoDeaux D-Deux D.Duce DiDoose</p>
           </a>
           {/* want to use Link bc internal links */}
-          <Link href="/play" className={styles.card}>
+          <Link
+            href="https://dd2-git-gated-page-tippi-fifestarr.vercel.app/login"
+            className={styles.card}
+          >
             <h2>DD OG Default Deck 🎴 &rarr;</h2>
             <p>
               If no deck: &quot;Collect and play with the *OG Web3 DD, free
