@@ -32,6 +32,12 @@ export default function Login() {
           main page
         </Link>{" "}
         unless you own an NFT from our collection!
+        <br />
+        You can{" "}
+        <Link href="https://dd2-smoky.vercel.app/">
+          get it here (under the DD Logo)
+        </Link>{" "}
+        connecting to metamask on goerli and claiming your free DD Access Pass!
       </p>
 
       <hr className={styles.divider} />
