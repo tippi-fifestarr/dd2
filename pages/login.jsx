@@ -35,9 +35,9 @@ export default function Login() {
         <br />
         You can{" "}
         <Link href="https://dd2-smoky.vercel.app/">
-          get it here (under the DD Logo)
+          get it here (under the DD Logo) connecting to Metamask on Mumbai Testnet
         </Link>{" "}
-        connecting to metamask on goerli and claiming your free DD Access Pass!
+        connecting to Metamask on Mumbai Testnet and claiming your free DD Access Pass!
       </p>
 
       <hr className={styles.divider} />
