@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { getDeck } from "../utils/deck";
 import CardDetail from "../components/CardDetail3";
+// import Meta from "../components/Meta";
 // import Nav from "../components/nav";
 
 function Play({ deck }) {
@@ -17,6 +18,7 @@ function Play({ deck }) {
 
   return (
     <>
+      {/* <Meta /> */}
       <div className="flex flex-col items-center">
         {/* Detail viewer */}
 

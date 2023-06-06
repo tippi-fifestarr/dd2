@@ -10,7 +10,7 @@
       "image": "/images/abimanyu.png",
       "image_provenance": "Abimanyu's Instagram",
       "catchphrase": "In AI we trust!",
-      "weapon": "Deep Learning Algorithms",
+      "tool": "Deep Learning Algorithms",
       "fun_fact": "Did you know that slime molds can solve complex problems even without a brain?",
       "can_teach": "Machine Learning",
       "attributes": {
@@ -31,7 +31,7 @@
       "image": "/images/arnav_ravinder.png",
       "image_provenance": "Arnav Ravinder's LinkedIn",
       "catchphrase": "Embrace change, learn new things!",
-      "weapon": "Swift programming",
+      "tool": "Swift programming",
       "fun_fact": "Slime molds can remember and anticipate events!",
       "can_teach": "Swift and iOS Development",
       "attributes": {
@@ -52,7 +52,7 @@
       "image": "/images/shashank.png",
       "image_provenance": "Shashank's Twitter",
       "catchphrase": "The code is mightier than the sword!",
-      "weapon": "Blockchain",
+      "tool": "Blockchain",
       "fun_fact": "Slime molds can grow and cover large distances in search of food!",
       "can_teach": "Blockchain concepts",
       "attributes": {
@@ -73,7 +73,7 @@
       "image": "/images/hrithik_yash.png",
       "image_provenance": "Hrithik Yash's Instagram",
       "catchphrase": "Driven by curiosity, fueled by innovation!",
-      "weapon": "Engineering and Automotive Design",
+      "tool": "Engineering and Automotive Design",
       "fun_fact": "Slime molds can live and thrive in various environments, from forests to your own backyard!",
       "can_teach": "Automotive design",
       "attributes": {
@@ -94,7 +94,7 @@
       "image": "/images/sruthi.png",
       "image_provenance": "Sruthi's LinkedIn",
       "catchphrase": "Let's demystify coding together!",
-      "weapon": "Python Notebook",
+      "tool": "Python Notebook",
       "fun_fact": "Did you know that slime molds can solve mazes?",
       "can_teach": "Python programming",
       "attributes": {
@@ -115,7 +115,7 @@
       "image": "/images/arnav.png",
       "image_provenance": "Arnav's Instagram",
       "catchphrase": "Code is my second language!",
-      "weapon": "Javascript",
+      "tool": "Javascript",
       "fun_fact": "Slime molds can replicate colors of light they're exposed to!",
       "can_teach": "Web development",
       "attributes": {
