@@ -4,7 +4,7 @@ function CardDetail({ selectedCard, cardSelected }) {
   return (
     <div className="h-full px-2">
       <h1 className="text-center z-10 font-gorditas">
-        {cardSelected ? selectedCard.name : "DaDeuce"}
+        {selectedCard?.name ? selectedCard.name : "DaDeuce"}
       </h1>
       <div className="flex flex-col sm:flex-row justify-center text-slate-900">
         <div className="flex justify-center place-content-center max-h-36 h-36 md:max-h-64 md:h-64">
@@ -74,7 +74,9 @@ function CardDetail({ selectedCard, cardSelected }) {
         </div>
       </div>
       <p className="w-36 md:w-64 text-xs align-middle justify-center text-center items-center pb-2">
-        {selectedCard.catchphrase}
+        {selectedCard?.catchphrase
+          ? selectedCard.catchphrase
+          : "DaDeuce the game"}
       </p>
     </div>
   );

@@ -1,271 +1,18 @@
 {
-  "slimemolds": [
+  "cards": [
     {
       "id": 1,
       "type": "character",
-      "team": "Mage",
-      "name": "Elon Ma",
-      "origin": "China",
-      "description": "Fan of fun technology currency, oh yeah.",
-      "image": "/images/elon_ma.png",
-      "catchphrase": "I need a better catchphrase.",
-      "attributes": {
-        "mental": 2,
-        "magic": 1,
-        "physical": 1,
-        "health": 1,
-        "armor": 0
-      }
-    },
-    {
-      "id": 2,
-      "type": "character",
-      "team": "Mage",
-      "name": "Chalice",
-      "origin": "Driver",
-      "description": "Chalice, a self-aware car, and her current driver.",
-      "image": "/images/chalice.png",
-      "catchphrase": "Beep beep, vrooom, bitch.",
-      "attributes": {
-        "mental": 0,
-        "magic": 2,
-        "physical": 1,
-        "health": 2,
-        "armor": 2
-      }
-    },
-    {
-      "id": 3,
-      "type": "character",
-      "team": "Mage",
-      "name": "Discordian",
-      "origin": "Chicago",
-      "description": "Likes disco.",
-      "image": "/images/discordian.png",
-      "catchphrase": "Nobody ever wins a fight... unless we dance?",
-      "attributes": {
-        "mental": 1,
-        "magic": 2,
-        "physical": 0,
-        "health": 1,
-        "armor": 0
-      }
-    },
-    {
-      "id": 4,
-      "type": "character",
-      "team": "Mage",
-      "name": "咪喵",
-      "origin": "Canton.cn",
-      "description": "A sweet and sad cat, fast when mad.",
-      "image": "/images/mimiao.png",
-      "catchphrase": "Where am I?",
-      "attributes": {
-        "mental": 1,
-        "magic": 1,
-        "physical": 2,
-        "health": 1,
-        "armor": 0
-      }
-    },
-    {
-      "id": 5,
-      "type": "location",
-      "team": "Mage",
-      "name": "Cybernetic Chicago",
-      "description": "After 2023, North American cyber-innovation hub.",
-      "image": "/images/chicagosml.png",
-      "catchphrase": "Bears, Hawks, Sox, Bulls.",
-      "attributes": {
-        "defense_bonus": 2
-      }
-    },
-    {
-      "id": 6,
-      "type": "character",
-      "team": "Muso",
-      "name": "JB",
-      "origin": "California/Canada",
-      "description": "Golden voiced funny man.",
-      "image": "/images/JB.png",
-      "catchphrase": "I'm just a baby, baby, oOoo.",
-      "attributes": {
-        "mental": 2,
-        "magic": 1,
-        "physical": 2,
-        "health": 1,
-        "armor": 0
-      }
-    },
-    {
-      "id": 7,
-      "type": "character",
-      "team": "Muso",
-      "name": "Banjolorian",
-      "origin": "Chesterland, OH",
-      "description": "Funky French Bounty Hunter.",
-      "image": "/images/banjolorian.png",
-      "catchphrase": "Harder, better, faster, stronger.",
-      "attributes": {
-        "mental": 1,
-        "magic": 1,
-        "physical": 3,
-        "health": 1,
-        "armor": 2
-      }
-    },
-    {
-      "id": 8,
-      "type": "character",
-      "team": "Muso",
-      "name": "Funky the Dog",
-      "origin": "Qingdao",
-      "description": "Smart, psychic, with incredible rhythm.",
-      "image": "/images/funky.png",
-      "catchphrase": ":P",
-      "attributes": {
-        "mental": 2,
-        "magic": 2,
-        "physical": 1,
-        "health": 2,
-        "armor": 1
-      }
-    },
-    {
-      "id": 9,
-      "type": "character",
-      "team": "Muso",
-      "name": "Jenny in the Rearview",
-      "origin": "China",
-      "description": "AI, fast, musical, cute, has a spaceship that's AI.",
-      "image": "/images/jenny.png",
-      "catchphrase": "手机高手.",
-      "attributes": {
-        "mental": 2,
-        "magic": 2,
-        "physical": 1,
-        "health": 1,
-        "armor": 1
-      }
-    },
-    {
-      "id": 10,
-      "type": "location",
-      "team": "Muso",
-      "name": "The Double Deuce",
-      "description": "If you aren’t nice, we’ll ask you to leave. Timeless Music Bar.",
-      "image": "/images/double_deuce.png",
-      "catchphrase": "Live music!",
-      "attributes": {
-        "defense_bonus": 2
-      }
-    },
-    {
-      "id": 11,
-      "type": "character",
-      "team": "Demon",
-      "name": "Devils Discer",
-      "origin": "Unknown",
-      "description": "An ultimate frisbee loving evil liar.",
-      "image": "/images/discer.png",
-      "catchphrase": "Catch this!",
-      "attributes": {
-        "mental": 2,
-        "magic": 1,
-        "physical": 2,
-        "health": 2,
-        "armor": 1
-      }
-    },
-    {
-      "id": 12,
-      "type": "character",
-      "team": "Demon",
-      "name": "Lazy P",
-      "origin": "Unknown",
-      "description": "Vape smoking lazy guy with an axe.",
-      "image": "/images/lazy_p.png",
-      "catchphrase": "Chill, it's just a game.",
-      "attributes": {
-        "mental": 1,
-        "magic": 1,
-        "physical": 2,
-        "health": 3,
-        "armor": 2
-      }
-    },
-    {
-      "id": 13,
-      "type": "character",
-      "team": "Demon",
-      "name": "Poly Satin",
-      "origin": "Unknown",
-      "description": "Polyamorous ai assistant / boss b****.",
-      "image": "/images/poly_ai.png",
-      "catchphrase": "Love is a many sided thing.",
-      "attributes": {
-        "mental": 2,
-        "magic": 2,
-        "physical": 1,
-        "health": 2,
-        "armor": 2
-      }
-    },
-    {
-      "id": 14,
-      "type": "character",
-      "team": "Demon",
-      "name": "Evil Ape",
-      "origin": "Unknown",
-      "description": "A bored ape NFT with flaming hair and sunglasses.",
-      "image": "/images/evil_ape.png",
-      "catchphrase": "Bored yet?",
-      "attributes": {
-        "mental": 1,
-        "magic": 1,
-        "physical": 3,
-        "health": 2,
-        "armor": 2
-      }
-    },
-    {
-      "id": 15,
-      "type": "location",
-      "team": "Demon",
-      "name": "Cabin on the Mountain",
-      "description": "Evil headquarters with amazing view and regenerative powers.",
-      "image": "/images/cabin.png",
-      "catchphrase": "Welcome to our humble abode.",
-      "attributes": {
-        "defense_bonus": 3
-      }
-    },
-    {
-      "id": 16,
-      "type": "character",
-      "team": "Angel",
-      "name": "Aire",
-      "origin": "Unknown",
-      "description": "With the clipboard reflection power and wings.",
-      "image": "/images/aire.png",
-      "catchphrase": "Clipboard, don't fail me now!",
-      "attributes": {
-        "mental": 2,
-        "magic": 2,
-        "physical": 1,
-        "health": 2,
-        "armor": 1
-      }
-    },
-    {
-      "id": 17,
-      "type": "character",
-      "team": "Angel",
-      "name": "Arien",
-      "origin": "Unknown",
-      "description": "AI hacker can’t fly but will hit you with a yoga mat.",
-      "image": "/images/arien.png",
-      "catchphrase": "You're about to get served... some code!",
+      "team": "Intelligent Explorer",
+      "name": "Abimanyu",
+      "origin": "India",
+      "description": "Enthusiast of everything AI, machine learning, and data science.",
+      "image": "/images/abimanyu.png",
+      "image_provenance": "Abimanyu's Instagram",
+      "catchphrase": "In AI we trust!",
+      "weapon": "Deep Learning Algorithms",
+      "fun_fact": "Did you know that slime molds can solve complex problems even without a brain?",
+      "can_teach": "Machine Learning",
       "attributes": {
         "mental": 3,
         "magic": 2,
@@ -275,47 +22,108 @@
       }
     },
     {
-      "id": 18,
+      "id": 2,
       "type": "character",
-      "team": "Angel",
-      "name": "师傅",
-      "origin": "Unknown",
-      "description": "Taiqi qigong shifu, can shoot energy balls, super cool, can eat a lot of dumplings.",
-      "image": "/images/shifu.png",
-      "catchphrase": "Energy ball, go!",
-      "mental": 2,
-      "magic": 3,
-      "physical": 1,
-      "health": 2,
-      "armor": 0
-    },
-    {
-      "id": 19,
-      "type": "character",
-      "team": "Angel",
-      "name": "Unknown Animal",
-      "origin": "Unknown",
-      "description": "A mysterious animal with celestial power.",
-      "image": "/images/mystery.png",
-      "catchphrase": "?",
+      "team": "Code Ninja",
+      "name": "Arnav Ravinder",
+      "origin": "India",
+      "description": "A tech geek, who loves exploring new technologies and aims to leverage technology to solve real-world problems.",
+      "image": "/images/arnav_ravinder.png",
+      "image_provenance": "Arnav Ravinder's LinkedIn",
+      "catchphrase": "Embrace change, learn new things!",
+      "weapon": "Swift programming",
+      "fun_fact": "Slime molds can remember and anticipate events!",
+      "can_teach": "Swift and iOS Development",
       "attributes": {
-        "mental": 2,
-        "magic": 2,
+        "mental": 3,
+        "magic": 1,
         "physical": 1,
         "health": 2,
         "armor": 1
       }
     },
     {
-      "id": 20,
-      "type": "location",
-      "team": "Angel",
-      "name": "The Cloud",
-      "description": "Cloud location for the angels.",
-      "image": "/images/cloud.png",
-      "catchphrase": "Heaven's not far away.",
+      "id": 3,
+      "type": "character",
+      "team": "Creative Coder",
+      "name": "Shashank",
+      "origin": "India",
+      "description": "Inquisitive and creative coder who is interested in blockchain and open source.",
+      "image": "/images/shashank.png",
+      "image_provenance": "Shashank's Twitter",
+      "catchphrase": "The code is mightier than the sword!",
+      "weapon": "Blockchain",
+      "fun_fact": "Slime molds can grow and cover large distances in search of food!",
+      "can_teach": "Blockchain concepts",
       "attributes": {
-        "defense_bonus": 2
+        "mental": 2,
+        "magic": 1,
+        "physical": 1,
+        "health": 1,
+        "armor": 0
+      }
+    },
+    {
+      "id": 4,
+      "type": "character",
+      "team": "Auto Enthusiast",
+      "name": "Hrithik Yash",
+      "origin": "India",
+      "description": "Innovative and tech-savvy, with a strong interest in cars and technology.",
+      "image": "/images/hrithik_yash.png",
+      "image_provenance": "Hrithik Yash's Instagram",
+      "catchphrase": "Driven by curiosity, fueled by innovation!",
+      "weapon": "Engineering and Automotive Design",
+      "fun_fact": "Slime molds can live and thrive in various environments, from forests to your own backyard!",
+      "can_teach": "Automotive design",
+      "attributes": {
+        "mental": 2,
+        "magic": 1,
+        "physical": 1,
+        "health": 1,
+        "armor": 0
+      }
+    },
+    {
+      "id": 5,
+      "type": "character",
+      "team": "Data Detective",
+      "name": "Sruthi",
+      "origin": "India",
+      "description": "Passionate about coding, music, and data science.",
+      "image": "/images/sruthi.png",
+      "image_provenance": "Sruthi's LinkedIn",
+      "catchphrase": "Let's demystify coding together!",
+      "weapon": "Python Notebook",
+      "fun_fact": "Did you know that slime molds can solve mazes?",
+      "can_teach": "Python programming",
+      "attributes": {
+        "mental": 2,
+        "magic": 1,
+        "physical": 1,
+        "health": 1,
+        "armor": 0
+      }
+    },
+    {
+      "id": 6,
+      "type": "character",
+      "team": "Code Ninja",
+      "name": "Arnav",
+      "origin": "India",
+      "description": "Young and dedicated coder, ready to take on challenges.",
+      "image": "/images/arnav.png",
+      "image_provenance": "Arnav's Instagram",
+      "catchphrase": "Code is my second language!",
+      "weapon": "Javascript",
+      "fun_fact": "Slime molds can replicate colors of light they're exposed to!",
+      "can_teach": "Web development",
+      "attributes": {
+        "mental": 3,
+        "magic": 1,
+        "physical": 1,
+        "health": 2,
+        "armor": 1
       }
     }
   ],

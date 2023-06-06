@@ -20,9 +20,7 @@ function Play({ deck }) {
       <div className="flex flex-col items-center">
         {/* Detail viewer */}
 
-        {selectedCard && (
-          <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
-        )}
+        <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
 
         {/* Gameboard */}
         <div className="grid grid-cols-5 gap-2">

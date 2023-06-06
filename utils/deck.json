@@ -24,11 +24,10 @@
       "type": "character",
       "team": "Mage",
       "name": "Chalice",
-      "origin": "Driver",
+      "origin": "Unknown",
       "weapon": "We are the weapon.",
       "description": "Chalice, a self-aware car, and her current driver.",
       "image": "/images/chalice.png",
-
       "image_provenance": "Joanna WeChat",
       "catchphrase": "Beep beep, vrooom, baby.",
       "attributes": {
