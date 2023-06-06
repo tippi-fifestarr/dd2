@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Script from "next/script";
 
+const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const Meta = () => (
   // const Head = ({ title, desc, canonical, image, props }) => (
+
   <>
     <Head>
       <title>DDEUX Access Page</title>
@@ -18,7 +20,7 @@ const Meta = () => (
       <meta name="author" content="Tippi Fifestarr" />
     </Head>
     <Script
-      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
       strategy="afterInteractive"
     />
     <Script id="google-analytics" strategy="afterInteractive">
@@ -27,7 +29,7 @@ const Meta = () => (
       function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS});
+      gtag('config', '${GA_ID}');
     `}
     </Script>
   </>

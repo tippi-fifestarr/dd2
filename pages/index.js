@@ -26,7 +26,7 @@ export default function Home() {
             the web3 revolution already!) 👇
           </p>
 
-          <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="flex flex-col items-center justify-center min-h-fit">
             <ClaimButton />
             <Nft />
           </div>

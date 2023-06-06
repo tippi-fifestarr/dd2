@@ -9,15 +9,6 @@ const gorditas = Gorditas({
   variable: "--font-gorditas",
 });
 
-// const oswald = Oswald({
-//   subsets: ["latin"],
-//   weight: ["200", "400", "700"],
-//   variable: "--font-oswald",
-// });
-
-// This is the chain your dApp will work on.
-// Change this to the chain your app is built for.
-// You can also import additional chains from `@thirdweb-dev/chains` and pass them directly.
 const activeChain = "mumbai";
 
 function MyApp({ Component, pageProps }) {

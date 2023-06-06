@@ -29,7 +29,7 @@ const ClaimButton = () => {
         <button
           disabled={claiming}
           style={{
-            padding: "12px 20px",
+            padding: "2px 12px",
             textAlign: "center",
             backgroundColor: "#05A266",
             color: "white",
