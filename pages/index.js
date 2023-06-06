@@ -18,40 +18,50 @@ export default function Home() {
             </a>
           </h1>
           <p className={styles.description}>
-            By Tippi Fifestarr with help from Amber the Yaoyao 😁 It&apos;s
-            open-source, so you can help too!
+            By{" "}
+            <a href="https://devpost.com/tippi-fifestarr" target="_blank">
+              Tippi Fifestarr
+            </a>{" "}
+            with help from{" "}
+            <a href="https://github.com/wyy511511" target="_blank">
+              Lunasol
+            </a>{" "}
+            😁 It&apos;s open-source, so you can help too!
           </p>
+          <h1 className={styles.description}>
+            If you don&apos;t know web3, click{" "}
+            <a href="https://dadeuce.vercel.app/" target="_blank">
+              WEB2 DaDeuce DEMO
+            </a>{" "}
+            to play the demo version, using random celebs from TMDB API.
+          </h1>
           <p className="m1 text-center">
-            If you don&apos;t know web3, choose web2 demo below (or just join
-            the web3 revolution already!) 👇
+            (or just join the web3 revolution already!) 👇
           </p>
 
           <div className="flex flex-col items-center justify-center min-h-fit">
-            <ClaimButton />
-            <Nft />
-          </div>
-          <p className={styles.description}>
-            If you have a wallet, connect to claim your Access Key{" "}
-            <code className={styles.code}>currently on Mumbai testnet</code>,
-            then collect the first Default Deck{" "}
-            <code className={styles.code}>also on Mumbai</code> to play the
-            deluxe version. Or click{" "}
-            <a href="https://dadeuce.vercel.app/" target="_blank">
-              DaDeuce Link
-            </a>{" "}
-            to play the demo version, using random celebs from TMDB API.
-          </p>
+            <div className={styles.connect}>
+              <ConnectWallet btnTitle="Connect d' wallet" />
+            </div>
 
-          <div className={styles.connect}>
-            <ConnectWallet btnTitle="Connect d' wallet" />
+            <Nft />
+            <ClaimButton />
           </div>
+          <h1 className={styles.description}>^ Free Access Key ^</h1>
+
           {/* now add in a thirdweb claim nft button for the access card that displays after they connected their wallet.*/}
 
           <div className={styles.grid}>
             {/* want to use Link bc internal links */}
-            <a href="/vote" className={styles.card}>
-              <h2>Vote! 😃 &rarr;</h2>
-              <p>DaDeuce DeDuece DoDeaux D-Deux D.Duce DiDoose</p>
+            <a
+              href="https://snapshot.org/#/wingbird.eth/proposal/0x1aa2cd5fab1c40beec0665c7e30ede99df38c20bc5362579f01ff69cefc7ebf4"
+              className={styles.card}
+            >
+              <h2>First Vote, we choose a name! 😃 &rarr;</h2>
+              <p>
+                Lets scale with progressive decentralization! DaDeuce DeDuece
+                DoDeaux D-Deux D.Duce DiDoose?
+              </p>
             </a>
             {/* want to use Link bc internal links */}
             <Link
