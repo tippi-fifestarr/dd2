@@ -12,6 +12,12 @@ import { Constants } from "./CONSTANTS";
 import Sound from "../components/sound";
 import StartModal from "./startModal";
 
+import React from 'react';
+import MyComponent from '../components/ChatArea';
+import ChatArea from "../components/ChatArea";
+
+
+
 export default function Home() {
   // music related state
   const [selectedSongIndex, setSelectedSongIndex] = useState(0);
@@ -116,6 +122,10 @@ export default function Home() {
             </div>
           </div>
           <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
+        </div>
+        <div>
+          <h1>Welcome to WS</h1>
+          <ChatArea />
         </div>
         <Cards
           chosenCard={chosenCard}

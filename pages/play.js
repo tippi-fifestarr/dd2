@@ -2,10 +2,15 @@
 import { useState } from "react";
 import Image from "next/image";
 // import Nav from "../components/nav";
+import React from 'react';
+import ChatArea from "../components/ChatArea";
+
 
 function Play({ deck }) {
   // We'll keep track of the currently selected card in state
   const [selectedCard, setSelectedCard] = useState(null);
+
+  console.log('Play component rendered');
 
   return (
     <>
@@ -23,6 +28,11 @@ function Play({ deck }) {
           volume={volume}
         />
       </main> */}
+
+        <div>
+          <h1>Welcome to WS</h1>
+          <ChatArea />
+        </div>
       <div className="flex flex-col items-center">
         {/* Detail viewer */}
         {selectedCard && (
