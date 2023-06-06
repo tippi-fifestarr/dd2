@@ -28,6 +28,11 @@ export default function Home() {
             </a>{" "}
             😁 It&apos;s open-source, so you can help too!
           </p>
+          <p className={styles.description}>
+            All are welcome to play a uniquely web3 card game experience where
+            you can deduce, choose, and have fun, win or lose! Much much more
+            coming soon 🤭 still on mumbai testnet 🏗️
+          </p>
           <h1 className={styles.description}>
             If you don&apos;t know web3, click{" "}
             <a href="https://dadeuce.vercel.app/" target="_blank">
@@ -35,19 +40,18 @@ export default function Home() {
             </a>{" "}
             to play the demo version, using random celebs from TMDB API.
           </h1>
-          <p className="m1 text-center">
+          <p className="m-1 text-center">
             (or just join the web3 revolution already!) 👇
           </p>
 
           <div className="flex flex-col items-center justify-center min-h-fit">
-            <div className={styles.connect}>
-              <ConnectWallet btnTitle="Connect d' wallet" />
-            </div>
-
+            <ConnectWallet btnTitle="Connect d' wallet" />
             <Nft />
             <ClaimButton />
           </div>
-          <h1 className={styles.description}>^ Free Access Key ^</h1>
+          <h1 className={styles.description}>
+            ^ Free Access Key ^ <br /> 👇 Access these: 👇{" "}
+          </h1>
 
           {/* now add in a thirdweb claim nft button for the access card that displays after they connected their wallet.*/}
 

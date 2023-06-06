@@ -11,7 +11,7 @@ const Nft = () => {
 
   return (
     <div>
-      <h1 className="font-gorditas text-lg text-center">
+      <h1 className="font-gorditas text-lg text-center m-1">
         OG Access Key: Forever Free!
       </h1>
       {nft && (
