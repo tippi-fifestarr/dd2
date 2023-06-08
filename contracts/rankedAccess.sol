@@ -61,6 +61,7 @@ contract RankedDefault is ERC721Base {
        // check that the msg.sender has not minted before
        require(!hasMinted[msg.sender], "ALREADY_MINTED");
 
+         // something weird is happening here, GPT had me change it to the thing in discounted ranked access
        // Increment it so next time it's correct when we call .current()
        _tokenIdCounter.increment();
 
@@ -72,8 +73,8 @@ contract RankedDefault is ERC721Base {
        // set the value of minted to true for the msg sender
        hasMinted[msg.sender] = true; 
        // Default token Metadata on token minting
-    //    string memory tokenURI = "https://ipfs.io/ipfs/bafkreiaiqsghlpk5zktyau5e6ynqsel2b7fnnx54uyxj4hh7c6q2ofoxx4";
-    string memory tokenURI = "https://ipfs.io/ipfs/QmVAUVEmr6pxqZq2KtLtjs52d2c91q5sKKhDZweQeqaH7Z";
+        string memory tokenURI = "https://ipfs.io/ipfs/bafkreiaiqsghlpk5zktyau5e6ynqsel2b7fnnx54uyxj4hh7c6q2ofoxx4";
+    // string memory tokenURI = "https://ipfs.io/ipfs/QmVAUVEmr6pxqZq2KtLtjs52d2c91q5sKKhDZweQeqaH7Z";
 
        // setting default token Metadata 
        _setTokenURI(newTokenId, tokenURI);
