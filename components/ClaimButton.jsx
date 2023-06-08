@@ -29,7 +29,7 @@ const ClaimButton = () => {
         <button
           disabled={claiming}
           style={{
-            padding: "12px 20px",
+            padding: "2px 12px",
             textAlign: "center",
             backgroundColor: "#05A266",
             color: "white",
@@ -40,7 +40,12 @@ const ClaimButton = () => {
           {claiming ? "Claiming..." : "Claim Early Access NFT"}
         </button>
       ) : (
-        <button onClick={connectWithMetamask}>Connect MetaMask Wallet</button>
+        <button
+          className="btn rounded-lg m-1 bg-slate-500"
+          onClick={connectWithMetamask}
+        >
+          Connect MetaMask Wallets
+        </button>
       )}
     </div>
   );
