@@ -23,32 +23,36 @@ io.on('connection', (socket) => {
 
 
   socket.on('joinRoom', (roomId) => {
-    if (rooms[roomId]) {
-      rooms[roomId].push(socket.id);
+    if (!rooms[roomId]) {
+      rooms[roomId] = [];
+      playerCounter[roomId] = 1; // initialize player counter for this room
     } else {
-      rooms[roomId] = [socket.id];
-      playerCounter[roomId] = 0; // initialize player counter for this room
+      // Increment the player counter
+      playerCounter[roomId]++;
     }
-    messageHistory[socket.id] = [];
-    
-    // Increment the player counter
-    playerCounter[roomId]++;
+
+    // Add the socket to the room's array
+    rooms[roomId].push(socket.id);
+
+    // Store the player number on the socket
+    socket.playerNumber = playerCounter[roomId];
+
+    // Initialize or continue the message history for this socket
+    messageHistory[socket.id] = messageHistory[socket.id] || [];
 
     socket.join(roomId);
   
     // Send a confirmation message back to the client
-    io.to(roomId).emit('message', { sender: 'Server', message: `Player${playerCounter[roomId]} joined room ${roomId}` });
+    io.to(roomId).emit('message', { sender: 'Server', message: `Player${socket.playerNumber} joined room ${roomId}` });
   });
-  
 
   socket.on('message', (data) => {
     console.log('Server Received message:', data);
-    messageHistory[socket.id].push(`Player${playerCounter[data.roomId]}: ${data.message}`);
+    messageHistory[socket.id].push(`Player${socket.playerNumber}: ${data.message}`);
     // Send message to the room
-    io.in(data.roomId).emit('message', { sender: `Player${playerCounter[data.roomId]}`, message: data.message });
+    io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: data.message });
     console.log('sent message to room: ', data.roomId);
   });
-
 
 
 
