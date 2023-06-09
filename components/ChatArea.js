@@ -35,7 +35,7 @@ const ChatArea = () => {
 
   const sendMessage = () => {
     if (socket) {
-      setMessageHistory(prevMessages => [...prevMessages, message]);
+      setMessageHistory(prevMessages => [...prevMessages, {sender: 'Client', message: message}]);
       socket.emit('message', {roomId: roomId, message: message});
     }
   };
@@ -57,12 +57,18 @@ const ChatArea = () => {
         <button onClick={sendMessage}>Send Message</button>
       </div>
       <button onClick={disconnect}>Exit</button>
+      <ul>
+        {messageHistory.map((messageData, index) => (
+          <li key={index}>
+            <strong>{messageData.sender}:</strong> {messageData.message}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
 export default ChatArea;
-
 
 
 // const ChatArea = () => {
