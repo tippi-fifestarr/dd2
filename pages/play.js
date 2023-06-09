@@ -11,8 +11,10 @@ import Tipsbox from "../components/tipsbox";
 import { Constants } from "../const/CONSTANTS";
 // import Meta from "../components/Meta";
 // import Nav from "../components/nav";
+import React from "react";
+import ChatArea from "../components/ChatArea";
 
-function Play({ deck }) {
+function Play({ deckProps }) {
   // We'll keep track of the currently selected card in state
   const [selectedCard, setSelectedCard] = useState({});
   const [cardSelected, setCardSelected] = useState(false);
@@ -26,6 +28,25 @@ function Play({ deck }) {
   const [totalClicks, setTotalClicks] = useState(0);
   const [modalType, setModalType] = useState("start");
   const [modalOpen, setModalOpen] = useState(true);
+  // all the cards
+  const [deck, setDeck] = useState(deckProps.cards);
+
+  // onFlippedCard
+  function flipHandler(card) {
+    setDeck((prev) => {
+      return prev.map((c) => {
+        if (c.id === card.id) {
+          return { ...c, flipped: !c.flipped };
+        } else {
+          return c;
+        }
+      });
+    });
+  }
+
+  useEffect(() => {
+    console.log(deck);
+  }, [deck]);
 
   const songs = Constants.songs;
   console.log(songs);
@@ -56,6 +77,8 @@ function Play({ deck }) {
     "give me a tip, send to wingbird.eth",
   ];
 
+  console.log("Play component rendered");
+
   return (
     <>
       {/* <Meta /> */}
@@ -76,11 +99,12 @@ function Play({ deck }) {
           {/* <AudioPlayer /> */}
           <div className="flex justify-center">
             {" "}
+            <ChatArea />
             <Tipsbox
               chosenCard={chosenCard}
               tips={tips}
               cardsRemaining={10}
-              finalCard={deck.cards[0]}
+              finalCard={deck[0]}
             />
             <div
               className="text-slate-200 text-center hover:text-slate-400 cursor-pointer rounded-full border-[3px] border-slate-600 hover:bg-slate-400 h-fit p-0.5"
@@ -96,11 +120,12 @@ function Play({ deck }) {
       </div>
       {/* Gameboard */}
       <div className="grid grid-cols-5 gap-2">
-        {deck.cards.map((card) => (
+        {deck.map((card) => (
           <div
             key={card.id}
             className="flex flex-col p-1 border-2 border-slate-200 rounded-md shadow cursor-pointer overflow-clip justify-center"
             onClick={() => handleClick(card)}
+            onDoubleClick={() => flipHandler(card)}
           >
             <h2 className="text-xs sm:text-sm w-20 sm:w-24 text-center font-gorditas">
               {card.name}
@@ -188,11 +213,11 @@ function Play({ deck }) {
 // }
 
 export async function getStaticProps() {
-  const deck = await getDeck();
+  const deckProps = await getDeck();
 
   return {
     props: {
-      deck,
+      deckProps,
     },
   };
 }
