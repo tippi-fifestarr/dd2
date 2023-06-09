@@ -56,9 +56,24 @@ const ChatArea = () => {
   const questionFinished = () => {
     if (socket) {
       // Emit a questionFinished event
-      socket.emit('questionFinished', {roomId: roomId});
+      socket.emit('finishQuestion', {roomId: roomId, message: message});
     }
   };
+
+  const answerYes = () => {
+    if (socket) {
+      // Emit a answerYes event
+      socket.emit('answerYes', {roomId: roomId, message: message});
+    }
+  };
+
+  const answerNo = () => {
+    if (socket) {
+      // Emit a answerNo event
+      socket.emit('answerNo', {roomId: roomId, message: message});
+    }
+  };
+
 
   const downloadHistory = () => {
     return new Promise((resolve, reject) => {
@@ -102,8 +117,6 @@ const ChatArea = () => {
       setSocket(null);  // set socket to null after disconnecting
     }
   };
-  
-
   return (
     <div>
       Socket.IO example
@@ -115,6 +128,8 @@ const ChatArea = () => {
         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter message" />
         <button onClick={sendMessage}>Send Message</button>
         <button onClick={questionFinished}>Finish Question</button>
+        <button onClick={answerYes}>Answer Yes</button>
+        <button onClick={answerNo}>Answer No</button>
       </div>
       <button onClick={disconnect}>Exit</button>
       <ul>

@@ -59,6 +59,26 @@ io.on('connection', (socket) => {
     io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: data.message });
     console.log('sent message to room: ', data.roomId);
   });
+  socket.on('finishQuestion', (data) => {
+    let newMessage = `Player${socket.playerNumber} finished asking question. Other players please answer Yes or No.`;
+    messageHistory[data.roomId].push(newMessage);
+    io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: newMessage });
+    console.log('sent finishQuestion message to room: ', data.roomId);
+  });
+
+  socket.on('answerYes', (data) => {
+    let newMessage = `Player${socket.playerNumber} answered Yes.`;
+    messageHistory[data.roomId].push(newMessage);
+    io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: newMessage });
+    console.log('sent answerYes message to room: ', data.roomId);
+  });
+
+  socket.on('answerNo', (data) => {
+    let newMessage = `Player${socket.playerNumber} answered No.`;
+    messageHistory[data.roomId].push(newMessage);
+    io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: newMessage });
+    console.log('sent answerNo message to room: ', data.roomId);
+  });
 
   socket.on('disconnect', () => {
     let roomIds = Object.keys(rooms);
