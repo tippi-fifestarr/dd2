@@ -13,6 +13,7 @@ import { Constants } from "../const/CONSTANTS";
 // import Nav from "../components/nav";
 import React from "react";
 import ChatArea from "../components/ChatArea";
+import Cards from "../components/cards";
 
 function Play({ deckProps }) {
   // We'll keep track of the currently selected card in state
@@ -22,6 +23,7 @@ function Play({ deckProps }) {
   const [isMuted, setIsMuted] = useState(false);
   const [sfxIndex, setSfxIndex] = useState(0);
   const [volume, setVolume] = useState(0.69);
+  const [cardsRemaining, setCardsRemaining] = useState(20);
   const [cardSituation, setCardSituation] = useState({});
   const [isNewLevel, setNewLevel] = useState(true);
   const [currentLevel, setCurrentLevel] = useState(0);
@@ -137,10 +139,29 @@ function Play({ deckProps }) {
               height={55}
               className="rounded-md self-center"
             />
-            {/* Other card details... */}
           </div>
         ))}
       </div>
+      {/* <Cards
+        chosenCard={chosenCard}
+        setChosenCard={setChosenCard}
+        className="items-center"
+        selectedCard={selectedCard}
+        setSelectedCard={setSelectedCard}
+        cardSelected={cardSelected}
+        setCardSelected={setCardSelected}
+        cardsRemaining={10}
+        setCardsRemaining={setCardsRemaining}
+        handleLevelComplete={handleLevelComplete}
+        totalClicks={totalClicks}
+        setTotalClicks={setTotalClicks}
+        isNewLevel={isNewLevel}
+        setNewLevel={setNewLevel}
+        setSfxIndex={setSfxIndex}
+        sfxIndex={sfxIndex}
+        volume={volume}
+        flipHandler={flipHandler}
+      /> */}
 
       <footer className="my-2 text-center transition-colors duration-200">
         {/* <div className="">
