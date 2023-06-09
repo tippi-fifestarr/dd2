@@ -61,10 +61,15 @@ const ChatArea = () => {
   };
 
   const downloadHistory = () => {
-    // window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
-    window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=1`;
-
+    if(socket) {
+      console.log('Downloading history...');
+      console.log('Socket ID: ', socket.id);
+      window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
+    }else{
+      console.log('Socket is null');
+    }
   };
+  
 
   const disconnect = () => {
     console.log('Message history: ', messageHistory);

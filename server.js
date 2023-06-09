@@ -70,14 +70,20 @@ io.on('connection', (socket) => {
 
 app.get('/downloadHistory', (req, res) => {
   // retrieve the room and player id from the request
+  let roomId = req.query.roomId;
   let playerId = req.query.playerId;
 
-  // find the message history for this player
+  // find the message history for this player and room
   let history = messageHistory[playerId];
 
-  // send the history as a response
-  res.send(history.join('\n'));
+  if (history) {
+    // send the history as a response
+    res.send(history.join('\n'));
+  } else {
+    res.status(404).send('No message history found for this player');
+  }
 });
+
 
 
 server.listen(3002, () => {
