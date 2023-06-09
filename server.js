@@ -36,7 +36,8 @@ io.on('connection', (socket) => {
     rooms[roomId].push(socket.id);
 
     // Initialize the message history for this socket
-    messageHistory[socket.id] = [];
+    // messageHistory[socket.id] = [];
+    messageHistory[roomId] = messageHistory[roomId] || [];
 
     socket.join(roomId);
   
@@ -49,7 +50,10 @@ io.on('connection', (socket) => {
     console.log('Server Received message:', data);
     
     let newMessage = `Player${socket.playerNumber}: ${data.message}`;
-    messageHistory[socket.id].push(newMessage);
+    // messageHistory[socket.id].push(newMessage);
+    // messageHistory[roomId].push(newMessage);
+    messageHistory[data.roomId].push(newMessage);
+
     
     // Send message to the room
     io.in(data.roomId).emit('message', { sender: `Player${socket.playerNumber}`, message: data.message });
@@ -74,7 +78,10 @@ app.get('/downloadHistory', (req, res) => {
   let playerId = req.query.playerId;
 
   // find the message history for this player and room
-  let history = messageHistory[playerId];
+  // let history = messageHistory[playerId];
+  // find the message history for this room
+let history = messageHistory[roomId];
+
 
   if (history) {
     // send the history as a response

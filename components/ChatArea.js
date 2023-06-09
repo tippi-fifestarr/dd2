@@ -65,7 +65,9 @@ const ChatArea = () => {
       if(socket) {
         console.log('Downloading history...');
         console.log('Socket ID: ', socket.id);
-        fetch(`http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`)
+        // fetch(`http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`)
+        fetch(`http://localhost:3002/downloadHistory?roomId=${roomId}`)
+
           .then(response => response.blob())
           .then(blob => {
             // Create a link and simulate a click to download the file
@@ -81,7 +83,7 @@ const ChatArea = () => {
           .catch(reject);  // reject the Promise if there's an error
       } else {
         console.log('Socket is null');
-        reject(new Error('Socket is null'));
+        // reject(new Error('Socket is null'));
       }
     });
   };
