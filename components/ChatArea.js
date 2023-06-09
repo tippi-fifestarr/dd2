@@ -61,7 +61,9 @@ const ChatArea = () => {
   };
 
   const downloadHistory = () => {
-    window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
+    // window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
+    window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=1`;
+
   };
 
   const disconnect = () => {
