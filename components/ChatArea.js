@@ -8,21 +8,32 @@ const ChatArea = () => {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    // 在客户端上创建Socket.IO连接
+    // Create a Socket.IO connection on the client
     const socket = io('http://localhost:3002');
 
-    // 监听自定义事件或消息
+    // Listen for custom events or messages
     socket.on('message', (data) => {
-      console.log('Client Received message:----debug');
       console.log('Client Received message:', data);
 
-      // 处理接收到的消息
+      // Handle the received message
       setMessageHistory(prevMessages => [...prevMessages, data]);
+    });
+
+    // Handle the nextQuestion event
+    socket.on('nextQuestion', (data) => {
+      console.log(`Player${data.nextPlayer}, it's your turn to ask a question.`);
+    });
+
+    // Handle the playerDisconnected event
+    socket.on('playerDisconnected', (data) => {
+      if(window.confirm(`Player${data.playerNumber} has left the room. Would you like to download the chat history?`)) {
+        downloadHistory();
+      }
     });
 
     setSocket(socket);
 
-    // 在组件卸载时断开连接
+    // Disconnect on component unmount
     return () => {
       console.log('Message history: ', messageHistory);
       socket.disconnect();
@@ -37,9 +48,20 @@ const ChatArea = () => {
 
   const sendMessage = () => {
     if (socket) {
-      // setMessageHistory(prevMessages => [...prevMessages, {sender: 'Client', message: message}]);
+      // Emit a message event
       socket.emit('message', {roomId: roomId, message: message});
     }
+  };
+
+  const questionFinished = () => {
+    if (socket) {
+      // Emit a questionFinished event
+      socket.emit('questionFinished', {roomId: roomId});
+    }
+  };
+
+  const downloadHistory = () => {
+    window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
   };
 
   const disconnect = () => {
@@ -49,7 +71,7 @@ const ChatArea = () => {
 
   return (
     <div>
-      Socket.IO hhhhhhh example
+      Socket.IO example
       <div>
         <input type="text" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter room ID" />
         <button onClick={joinRoom}>Join Room</button>
@@ -57,6 +79,7 @@ const ChatArea = () => {
       <div>
         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter message" />
         <button onClick={sendMessage}>Send Message</button>
+        <button onClick={questionFinished}>Finish Question</button>
       </div>
       <button onClick={disconnect}>Exit</button>
       <ul>
@@ -71,4 +94,3 @@ const ChatArea = () => {
 };
 
 export default ChatArea;
-
