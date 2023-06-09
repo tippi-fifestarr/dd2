@@ -15,7 +15,7 @@ const ChatArea = () => {
     socket.on('message', (data) => {
       console.log('Client Received message:----debug');
       console.log('Client Received message:', data);
-      
+
       // 处理接收到的消息
       setMessageHistory(prevMessages => [...prevMessages, data]);
     });
@@ -37,7 +37,7 @@ const ChatArea = () => {
 
   const sendMessage = () => {
     if (socket) {
-      setMessageHistory(prevMessages => [...prevMessages, {sender: 'Client', message: message}]);
+      // setMessageHistory(prevMessages => [...prevMessages, {sender: 'Client', message: message}]);
       socket.emit('message', {roomId: roomId, message: message});
     }
   };

@@ -16,30 +16,40 @@ app.use(cors());
 let rooms = {}
 let messageHistory = {}
 
+//console.log('sent message to room: ', data.roomId);
 io.on('connection', (socket) => {
   console.log('A client connected');
+  let playerCounter = {}
 
   socket.on('joinRoom', (roomId) => {
     if (rooms[roomId]) {
-      rooms[roomId].push(socket.id)
+      rooms[roomId].push(socket.id);
+      if(playerCounter[roomId]) {
+        playerCounter[roomId]++;
+      } else {
+        playerCounter[roomId] = 1;
+      }
     } else {
-      rooms[roomId] = [socket.id]
+      rooms[roomId] = [socket.id];
+      playerCounter[roomId] = 1;
     }
-    messageHistory[socket.id] = []
+    messageHistory[socket.id] = [];
     socket.join(roomId);
+
+    // Send a confirmation message back to the client
+    io.to(roomId).emit('message', { sender: 'Server', message: `Player${playerCounter[roomId]} joined room ${roomId}` });
   });
 
   socket.on('message', (data) => {
     console.log('Server Received message:', data);
-    
-    messageHistory[socket.id].push(data.message);
-
-    // 发送消息给同一个房间的所有客户端
-    io.in(data.roomId).emit('message', { sender: 'Client', message: data.message });  
+    messageHistory[socket.id].push(`Player${playerCounter[data.roomId]}: ${data.message}`);
+    // Send message to the room
+    io.in(data.roomId).emit('message', { sender: `Player${playerCounter[data.roomId]}`, message: data.message });
     console.log('sent message to room: ', data.roomId);
-    // io.to(data.roomId).emit('message', { sender: 'Server', message: data.message });
-    // io.to(data.roomId).emit('message', data.message);
   });
+
+
+
 
   socket.on('disconnect', () => {
     // Remove the disconnected socket from all rooms
