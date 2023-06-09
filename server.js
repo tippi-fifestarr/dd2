@@ -1,8 +1,3 @@
-
-
-
-
-
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -15,12 +10,8 @@ const io = require('socket.io')(server, {
         credentials: true
     }
 });
-// 使用 cors 中间件允许跨域请求
+
 app.use(cors());
-
-
-
-// ...
 
 let rooms = {}
 let messageHistory = {}
@@ -44,7 +35,10 @@ io.on('connection', (socket) => {
     messageHistory[socket.id].push(data.message);
 
     // 发送消息给同一个房间的所有客户端
-    io.to(data.roomId).emit('message', data.message);
+    io.in(data.roomId).emit('message', { sender: 'Client', message: data.message });  
+    console.log('sent message to room: ', data.roomId);
+    // io.to(data.roomId).emit('message', { sender: 'Server', message: data.message });
+    // io.to(data.roomId).emit('message', data.message);
   });
 
   socket.on('disconnect', () => {
@@ -60,8 +54,6 @@ io.on('connection', (socket) => {
     console.log('A client disconnected');
   });
 });
-
-// ...
 
 
 server.listen(3002, () => {
