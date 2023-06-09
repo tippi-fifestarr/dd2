@@ -61,20 +61,46 @@ const ChatArea = () => {
   };
 
   const downloadHistory = () => {
+    return new Promise((resolve, reject) => {
+      if(socket) {
+        console.log('Downloading history...');
+        console.log('Socket ID: ', socket.id);
+        fetch(`http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`)
+          .then(response => response.blob())
+          .then(blob => {
+            // Create a link and simulate a click to download the file
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'history.txt';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            resolve();  // resolve the Promise after download finishes
+          })
+          .catch(reject);  // reject the Promise if there's an error
+      } else {
+        console.log('Socket is null');
+        reject(new Error('Socket is null'));
+      }
+    });
+  };
+  
+  
+
+  const disconnect = async () => {
+    console.log('Message history: ', messageHistory);
+    try {
+      await downloadHistory();  // wait for the download to finish
+    } catch(error) {
+      console.log('Error downloading history:', error);
+    }
     if(socket) {
-      console.log('Downloading history...');
-      console.log('Socket ID: ', socket.id);
-      window.location.href = `http://localhost:3002/downloadHistory?roomId=${roomId}&playerId=${socket.id}`;
-    }else{
-      console.log('Socket is null');
+      socket.disconnect();
+      setSocket(null);  // set socket to null after disconnecting
     }
   };
   
-
-  const disconnect = () => {
-    console.log('Message history: ', messageHistory);
-    socket.disconnect();
-  };
 
   return (
     <div>
