@@ -74,9 +74,16 @@ export default function Home() {
             >
               <h2>DD OG Default Deck 🎴 &rarr;</h2>
               <p>
-                If no deck: &quot;Collect and play with the *OG Web3 DD, free
-                forever!*&quot; if OGDD: &quot;Play now with the OG Web3
-                DD!&quot;
+                Welcome to DDEUX, a game of strategy, mystery, and a dash of
+                luck! Round 1 - Guess Who: In the first round, you&apos;ll be
+                presented with a deck of 20 cards, each featuring a unique
+                character or location. Your goal is to guess which card your
+                friend has chosen, using only yes or no questions. You can ask
+                about anything you see on the card - the character&apos;s
+                attributes, their origin, their catchphrase - anything that will
+                help you narrow down the possibilities (double-click to flip the
+                card&apos;s you&apos;ve eliminated). But remember, you only have
+                20 questions to identify the card!
               </p>
             </Link>
             {/* want to use Link bc internal links */}

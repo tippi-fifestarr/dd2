@@ -4,20 +4,24 @@ DDEUX © 2023 by [Tippi Fifestarr](https://devpost.com/tippi-fifestarr) is licen
 
 ## The Goal
 
-Quickly adapt the [thirdweb starter template](https://next-javascript-starter.thirdweb-example.com/) to be perfect for the home page of D-Deuce.
+Build a uniquely web3 card game, with quick turn-based deduction-based gameplay, fun lore written by Tippi Fifestarr, and progressive decentralized scaling possiblities!
+
+> helped by https://blog.developerdao.com/create-nft-smart-contract-with-thirdweb-and-chainlink
+> quickly adapted the [thirdweb starter template](https://next-javascript-starter.thirdweb-example.com/) to be perfect for the home page of D-Deuce.
+> make your own cards/decks, coming soon
 
 Step 1. Start Screen.
 
-1. Play => Access Key => Choose a Deck
+1. Play => Access Key => Choose OG Deck
 2. Vote (disabled) => DaDeux? DeDeuce? => Optimistic Governance with Veto
 3. Create => Contribute/Apply => Coming soon
 
 - [ ] merge with original dd repo (web3 branch?)?
-- [ ] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
+- [x] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
 - [x] load the game page wrapped in thirdweb
 - [x] enable the claim button for access key (link to gitbooks documentation)
 - [ ] conditionally render "choose a deck" if user has access key
-- [ ] visually & functionally disable placeholder buttons
+- [x] visually & functionally disable placeholder buttons
 - [ ] outro music video in the "detail view" (image and text on time with music)
 - [ ] decide on an open-source license (it should be easy to contribute to and repurpose, but I don't want someone to take this idea and code and compete against me or trick people, which is why we need public ledger of the official spellings for the name of DaDeuce, maybe sell some franchises for each name, and give first dibs to the proposer of that vote, which will be me for the first few probably lol)
 - [ ] write warning for deck uploader that ownership rules haven't been finalized

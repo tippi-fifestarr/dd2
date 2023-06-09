@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useSound } from "use-sound";
-import { checkAccess } from "../utils/thirdweb";
+// import { checkAccess } from "../utils/thirdweb";
 // import { ThirdwebNftMedia, useContract, useNFT } from "@thirdweb-dev/react";
 
 const StartModal = ({
@@ -137,15 +137,15 @@ const StartModal = ({
             </p>
             <div className="w-28 m-2 drop-shadow-lg hover:drop-shadow-xl rounded-2xl border-green-600 border-2 bg-green-700">
               <h1 className="text-2xl">Rules</h1>
-              <p>{contractMeta.name}</p>
-              <Image
+              {/* <p>{contractMeta.name}</p> */}
+              {/* <Image
                 src={contractMeta.image}
                 alt="access key"
                 width={200}
                 height={200}
                 className="rounded-full w-full h-full object-cover drop-shadow-lg transition duration-150 ease-out hover:ease-in"
                 onClick={checkAccess}
-              />
+              /> */}
             </div>
             {/* <ol className="border-2 border-green-50 bg-green-200 text-slate-900 flex flex-col">
               <li>Get a friend to play DaDeuce with you on their phone.</li>
