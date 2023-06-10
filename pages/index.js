@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import ClaimButton from "../components/ClaimButton";
 import Nft from "../components/Nft";
+
 // import Meta from "../components/Meta";
 
 export default function Home() {
