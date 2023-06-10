@@ -69,7 +69,7 @@ function Play({ deckProps }) {
         <div className="w-full h-full">
           <div className="flex justify-center">
             {" "}
-            <ChatArea />
+            <ChatArea chosenCard={chosenCard} />
             <Tipsbox
               chosenCard={chosenCard}
               tips={tips}
