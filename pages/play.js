@@ -1,6 +1,5 @@
 // pages/play.js
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { getDeck } from "../utils/deck";
 import CardDetail from "../components/CardDetail3";
 import StartModal from "../components/startModal";
@@ -9,8 +8,6 @@ import ZoomSelection from "../components/zoomSelection";
 import HelpTips from "../components/helpTips";
 import Tipsbox from "../components/tipsbox";
 import { Constants } from "../const/CONSTANTS";
-// import Meta from "../components/Meta";
-// import Nav from "../components/nav";
 import React from "react";
 import ChatArea from "../components/ChatArea";
 import Cards from "../components/cards";
@@ -19,22 +16,16 @@ function Play({ deckProps }) {
   // We'll keep track of the currently selected card in state
   const [selectedCard, setSelectedCard] = useState({});
   const [cardSelected, setCardSelected] = useState(false);
-  const [selectedSongIndex, setSelectedSongIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [sfxIndex, setSfxIndex] = useState(0);
   const [volume, setVolume] = useState(0.69);
-  const [cardsRemaining, setCardsRemaining] = useState(20);
-  const [cardSituation, setCardSituation] = useState({});
-  const [isNewLevel, setNewLevel] = useState(true);
-  const [currentLevel, setCurrentLevel] = useState(0);
-  const [totalClicks, setTotalClicks] = useState(0);
   const [modalType, setModalType] = useState("start");
   const [modalOpen, setModalOpen] = useState(true);
   // all the cards
   const [deck, setDeck] = useState(deckProps.cards);
 
-  // onFlippedCard
-  function flipHandler(card) {
+  // // onFlippedCard
+  function handleFlip(card) {
     setDeck((prev) => {
       return prev.map((c) => {
         if (c.id === card.id) {
@@ -45,10 +36,6 @@ function Play({ deckProps }) {
       });
     });
   }
-
-  useEffect(() => {
-    console.log(deck);
-  }, [deck]);
 
   const songs = Constants.songs;
   console.log(songs);
@@ -62,11 +49,6 @@ function Play({ deckProps }) {
   useEffect(() => {
     console.log("chosenCard", chosenCard);
   }, [chosenCard.name]);
-
-  const handleClick = (selectedCard) => {
-    setCardSelected(true);
-    setSelectedCard(selectedCard);
-  };
 
   const handleHelper = () => {
     console.log("helper clicked");
@@ -83,22 +65,8 @@ function Play({ deckProps }) {
 
   return (
     <>
-      {/* <Meta /> */}
-      {/* <Nav
-          chosenCard={chosenCard}
-          isNewLevel={isNewLevel}
-          setNewLevel={setNewLevel}
-          isMuted={isMuted}
-          setIsMuted={setIsMuted}
-          selectedSongIndex={selectedSongIndex}
-          songs={songs}
-          sfxIndex={sfxIndex}
-          setSfxIndex={setSfxIndex}
-          volume={volume}
-        /> */}
       <div className="flex flex-col md:flex-row justify-center content-center items-center">
         <div className="w-full h-full">
-          {/* <AudioPlayer /> */}
           <div className="flex justify-center">
             {" "}
             <ChatArea />
@@ -120,78 +88,21 @@ function Play({ deckProps }) {
         </div>
         <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
       </div>
-      {/* Gameboard */}
-      <div className="grid grid-cols-5 gap-2">
-        {deck.map((card) => (
-          <div
-            key={card.id}
-            className="flex flex-col p-1 border-2 border-slate-200 rounded-md shadow cursor-pointer overflow-clip justify-center"
-            onClick={() => handleClick(card)}
-            onDoubleClick={() => flipHandler(card)}
-          >
-            <h2 className="text-xs sm:text-sm w-20 sm:w-24 text-center font-gorditas">
-              {card.name}
-            </h2>
-            <Image
-              src={card.image}
-              alt={card.name + ", " + card.image_provenance}
-              width={55}
-              height={55}
-              className="rounded-md self-center"
-            />
-          </div>
-        ))}
-      </div>
-      {/* <Cards
+      <Cards
         chosenCard={chosenCard}
         setChosenCard={setChosenCard}
-        className="items-center"
         selectedCard={selectedCard}
-        setSelectedCard={setSelectedCard}
         cardSelected={cardSelected}
+        setSelectedCard={setSelectedCard}
         setCardSelected={setCardSelected}
-        cardsRemaining={10}
-        setCardsRemaining={setCardsRemaining}
-        handleLevelComplete={handleLevelComplete}
-        totalClicks={totalClicks}
-        setTotalClicks={setTotalClicks}
-        isNewLevel={isNewLevel}
-        setNewLevel={setNewLevel}
         setSfxIndex={setSfxIndex}
         sfxIndex={sfxIndex}
+        isMuted={isMuted}
         volume={volume}
-        flipHandler={flipHandler}
-      /> */}
-
+        deck={deck}
+        handleFlip={handleFlip}
+      />
       <footer className="my-2 text-center transition-colors duration-200">
-        {/* <div className="">
-          <ul className="flex flex-row justify-between px-5 sm:text-xl">
-            <li className="flex">
-              <a className="text-blue-200 hover:bg-blue-600" href="/">
-                Home
-              </a>
-            </li>
-            <li
-              className={
-                gorditas.className + " text-slate-300 hover:bg-slate-500 flex"
-              }
-            >
-              <a href="/about">About</a>
-            </li>
-            <li
-              className={`${islandMoments.className} text-slate-300  hover:bg-slate-600 text-2xl`}
-            >
-              <a href="/contact">Contact</a>
-            </li>
-            <li
-              className={
-                frijole.className + " flex text-slate-300 hover:bg-slate-700"
-              }
-            >
-              <a href="/kickstart">Kickstart</a>
-            </li>
-          </ul>
-        </div> */}
         <div className="flex flex-row justify-around">
           <ZoomSelection />
           <HelpTips handleHelper={handleHelper} />
@@ -221,45 +132,13 @@ function Play({ deckProps }) {
   );
 }
 
-// Fetch your deck data from the API
-// export async function getStaticProps() {
-//   const res = await fetch("/api/deck");
-//   const deck = await res.json();
-
-//   return {
-//     props: {
-//       deck,
-//     },
-//   };
-// }
-
 export async function getStaticProps() {
   const deckProps = await getDeck();
-
   return {
     props: {
       deckProps,
     },
   };
 }
-
-// export async function getServerSideProps(context) {
-//   const res = await fetch(`http://localhost:3000/api/deck`);
-//   const deckData = await res.json();
-
-//   return {
-//     props: {
-//       deck: deckData.deck.map((card) => ({
-//         id: card.id,
-//         type: card.type,
-//         name: card.name,
-//         description: card.description,
-//         image: card.image,
-//         attributes: card.attributes,
-//         ability: card.ability,
-//       })),
-//     },
-//   };
-// }
 
 export default Play;
