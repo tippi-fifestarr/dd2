@@ -6,6 +6,7 @@ const ChatArea = ({ chosenCard }) => {
   const [messageHistory, setMessageHistory] = useState([]);
   const [roomId, setRoomId] = useState('');
   const [message, setMessage] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     // Create a Socket.IO connection on the client
@@ -117,28 +118,43 @@ const ChatArea = ({ chosenCard }) => {
       setSocket(null);  // set socket to null after disconnecting
     }
   };
+
+
+
   return (
-    <div>
-      {chosenCard.name}
-      <div>
-        <input type="text" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter room ID" />
-        <button onClick={joinRoom}>Join Room</button>
+    <div className={`w-fit rounded-xl p-1 mx-2 mb-1 flex flex-col absolute bottom-4 right-4 ${isExpanded ? "bg-slate-600 bg-opacity-80" : ""}`} style={{ zIndex: 1000 }}>
+      <div className="text-xs md:text-base lg:text-lg text-slate-200 cursor-pointer mb-2 flex justify-between items-center" onClick={() => setIsExpanded(!isExpanded)}>
+        💬 Chat {isExpanded ? <span>&#9650;</span> : <span>&#9660;</span>}
       </div>
-      <div>
-        <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter message" />
-        <button onClick={sendMessage}>Send Message</button>
-        <button onClick={questionFinished}>Finish Question</button>
-        <button onClick={answerYes}>Answer Yes</button>
-        <button onClick={answerNo}>Answer No</button>
-      </div>
-      <button onClick={disconnect}>Exit</button>
-      <ul>
-        {messageHistory.map((messageData, index) => (
-          <li key={index}>
-            <strong>{messageData.sender}:</strong> {messageData.message}
-          </li>
-        ))}
-      </ul>
+
+      {isExpanded && (
+        <>
+          <h2 className="text-xl font-bold mb-4 text-slate-200">{chosenCard.name}</h2>
+
+          <div className="mb-4">
+            <input type="text" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter room ID" className="border p-2 mr-2 rounded" />
+            <button onClick={joinRoom} className="bg-blue-500 text-white p-2 rounded">Join Room</button>
+          </div>
+
+          <div className="mb-4">
+            <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter message" className="border p-2 mr-2 rounded" />
+            <button onClick={sendMessage} className="bg-green-500 text-white p-2 rounded">Send Message</button>
+            <button onClick={questionFinished} className="bg-yellow-500 text-white p-2 rounded">Finish Question</button>
+            <button onClick={answerYes} className="bg-green-500 text-white p-2 rounded">Answer Yes</button>
+            <button onClick={answerNo} className="bg-red-500 text-white p-2 rounded">Answer No</button>
+          </div>
+
+          <button onClick={disconnect} className="bg-gray-500 text-white p-2 rounded mb-4">Exit</button>
+
+          <div className="mt-4 border p-4 rounded overflow-auto h-64">
+            {messageHistory.map((messageData, index) => (
+              <p key={index} className="mb-2">
+                <strong>{messageData.sender}:</strong> {messageData.message}
+              </p>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

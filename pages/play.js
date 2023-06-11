@@ -9,6 +9,7 @@ import HelpTips from "../components/helpTips";
 import Tipsbox from "../components/tipsbox";
 import { Constants } from "../const/CONSTANTS";
 import React from "react";
+// import ChatArea from "../components/ChatArea2";
 import ChatArea from "../components/ChatArea2";
 import Cards from "../components/cards";
 
