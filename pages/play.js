@@ -26,6 +26,7 @@ function Play({ deckProps }) {
   const [numFlippedCards, setNumFlippedCards] = useState(0);
   const [showLevelCompleteModal, setShowLevelCompleteModal] = useState(false);
   const [hasAccessRanked5, setHasAccessRanked5] = useState(false);
+  const [finalCard, setFinalCard] = useState({});
   // all the cards
   const [deck, setDeck] = useState(deckProps.cards);
 
@@ -57,10 +58,16 @@ function Play({ deckProps }) {
   useEffect(() => {
     const flippedCardsCount = deck.filter((card) => card.flipped).length;
     setNumFlippedCards(flippedCardsCount);
-    console.log("flipped cards", flippedCardsCount);
+    // console.log(
+    //   "unflipped cards",
+    //   deck.filter((card) => !card.flipped)
+    // );
+
     // the deckProps, when loaded, should have a cards array that is 20 objects
     if (deck.length - flippedCardsCount === 1) {
       setShowLevelCompleteModal(true);
+      setFinalCard(deck.filter((card) => !card.flipped));
+      console.log(finalCard);
     }
   }, [deck]);
 
@@ -89,7 +96,7 @@ function Play({ deckProps }) {
         <div className="w-full h-full">
           <div className="flex justify-center">
             {" "}
-            <ChatArea chosenCard={chosenCard} />
+            <ChatArea chosenCard={chosenCard} finalCard={finalCard} />
             <Tipsbox
               chosenCard={chosenCard}
               tips={tips}
