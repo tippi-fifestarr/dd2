@@ -12,6 +12,7 @@ import React from "react";
 import ChatArea from "../components/ChatArea2";
 import Cards from "../components/cards";
 import NewNav from "../components/newNav";
+import LevelCompleteModal from "../components/LevelCompleteModal";
 
 function Play({ deckProps }) {
   // We'll keep track of the currently selected card in state
@@ -22,6 +23,9 @@ function Play({ deckProps }) {
   const [volume, setVolume] = useState(0.69);
   const [modalType, setModalType] = useState("start");
   const [modalOpen, setModalOpen] = useState(true);
+  const [numFlippedCards, setNumFlippedCards] = useState(0);
+  const [showLevelCompleteModal, setShowLevelCompleteModal] = useState(false);
+  const [hasAccessRanked5, setHasAccessRanked5] = useState(false);
   // all the cards
   const [deck, setDeck] = useState(deckProps.cards);
 
@@ -37,9 +41,30 @@ function Play({ deckProps }) {
       });
     });
   }
+  // Dummy functions for now, you need to implement the logic later
+  const createToken = () => {
+    console.log("Create token");
+    // Implement logic to create a token.
+    setHasAccessRanked5(true); // Just simulating that the user now has access.
+  };
+
+  const saveMatchHistory = () => {
+    console.log("Save match history");
+    // Implement logic to save match history.
+  };
+
+  // tracking the number of flipped cards
+  useEffect(() => {
+    const flippedCardsCount = deck.filter((card) => card.flipped).length;
+    setNumFlippedCards(flippedCardsCount);
+    console.log("flipped cards", flippedCardsCount);
+    // the deckProps, when loaded, should have a cards array that is 20 objects
+    if (deck.length - flippedCardsCount === 1) {
+      setShowLevelCompleteModal(true);
+    }
+  }, [deck]);
 
   const songs = Constants.songs;
-  console.log(songs);
   const [chosenCard, setChosenCard] = useState({
     name: "none",
     id: 0,
@@ -47,12 +72,7 @@ function Play({ deckProps }) {
     description: "dadeuce",
   });
 
-  useEffect(() => {
-    console.log("chosenCard", chosenCard);
-  }, [chosenCard.name]);
-
   const handleHelper = () => {
-    console.log("helper clicked");
     setModalType("help");
     setModalOpen(true);
   };
@@ -61,8 +81,6 @@ function Play({ deckProps }) {
     // "take turns asking yes/no questions to dadeuce!",
     "give me a tip, send to wingbird.eth",
   ];
-
-  console.log("Play component rendered");
 
   return (
     <>
@@ -130,6 +148,13 @@ function Play({ deckProps }) {
           isMuted={isMuted}
         />
       </footer>
+      <LevelCompleteModal
+        modalOpen={showLevelCompleteModal}
+        setModalOpen={setShowLevelCompleteModal}
+        hasAccessRanked5={hasAccessRanked5}
+        createToken={createToken}
+        saveMatchHistory={saveMatchHistory}
+      />
     </>
   );
 }

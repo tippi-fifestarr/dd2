@@ -8,7 +8,7 @@ export default function Person({ person, handleClick, handleDoubleClick }) {
   const cardClickHandler = () => {
     setCardClicked(!isCardClicked);
     handleClick(person);
-    console.log("is it flipped?", person.flipped);
+    // console.log("is it flipped?", person.flipped);
   };
 
   return (
