@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import ClaimButton from "../components/ClaimButton";
 import Nft from "../components/Nft";
-import RankedNFT from "../components/RankedNFT";
+// import RankedNFT from "../components/RankedNFT";
 // import Meta from "../components/Meta";
 
 export default function Home() {
@@ -99,7 +99,7 @@ export default function Home() {
               </p>
             </Link>
           </div>
-          <RankedNFT />
+          {/* <RankedNFT /> */}
         </main>
       </div>
     </>

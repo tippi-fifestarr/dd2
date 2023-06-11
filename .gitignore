@@ -37,3 +37,5 @@ yarn-error.log*
 
 # yaoyaos stuff
 result/*
+/.history/
+.history/*
