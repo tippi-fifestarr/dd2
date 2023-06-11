@@ -11,6 +11,7 @@ import { Constants } from "../const/CONSTANTS";
 import React from "react";
 import ChatArea from "../components/ChatArea2";
 import Cards from "../components/cards";
+import NewNav from "../components/newNav";
 
 function Play({ deckProps }) {
   // We'll keep track of the currently selected card in state
@@ -65,6 +66,7 @@ function Play({ deckProps }) {
 
   return (
     <>
+      <NewNav chosenCard={chosenCard} />
       <div className="flex flex-col md:flex-row justify-center content-center items-center">
         <div className="w-full h-full">
           <div className="flex justify-center">

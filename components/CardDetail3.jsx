@@ -48,24 +48,6 @@ function CardDetail({ selectedCard, cardSelected }) {
                       </div>
                     );
                   }
-                  // Handle 'attributes' field
-                  //   if (key === "attributes") {
-                  //     return (
-                  //       <div key={key}>
-                  //         <strong>Attributes:</strong>
-                  //         {Object.keys(selectedCard[key]).map((attribute) => (
-                  //           <div key={attribute}>
-                  //             <strong>
-                  //               {attribute.charAt(0).toUpperCase() +
-                  //                 attribute.slice(1)}
-                  //               :
-                  //             </strong>{" "}
-                  //             {selectedCard[key][attribute]}
-                  //           </div>
-                  //         ))}
-                  //       </div>
-                  //     );
-                  //   }
                   return null;
                 })}
               </div>

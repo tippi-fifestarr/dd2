@@ -1,19 +1,21 @@
 const express = require("express");
 // import dotenv
 require("dotenv").config({ path: ".env.local" });
+// console.log(process.env.CORS_LOCATION);
 const cors = require("cors");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {
   cors: {
-    origin: process.env.CORS_LOCATION,
+    // origin: process.env.CORS_LOCATION,
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
   },
 });
 
-console.log(process.env.CORS_LOCATION);
+// console.log(process.env.CORS_LOCATION);
 
 app.use(cors());
 

@@ -9,7 +9,9 @@ const ChatArea = ({ chosenCard }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
-    const socket = io(process.env.SOCKET_LOCATION);
+    // console.log("socket location", process.env.SOCKET_LOCATION);
+    // const socket = io(process.env.SOCKET_LOCATION);
+    const socket = io("http://localhost:3002");
 
     socket.on("message", (data) => {
       setMessageHistory((prevMessages) => [...prevMessages, data]);
