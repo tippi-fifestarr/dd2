@@ -4,10 +4,11 @@
 //   useNFT,
 //   useContract,
 //   useContractWrite,
+//   wallet,
 // } from "@thirdweb-dev/react";
 
-// const RankedNFT = (userWalletAddress) => {
-//   const { contract, isLoading } = useContract(
+// const RankedNFT = () => {
+//   const { contract } = useContract(
 //     "0x8c98434b7CA12571568065ab2fbE2248fA0bA504"
 //   );
 //   const {

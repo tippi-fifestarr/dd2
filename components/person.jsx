@@ -1,25 +1,14 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Person({
-  person,
-  imagePath,
-  handleClick,
-  handleDoubleClick,
-  flippedCards,
-  setFlippedCards,
-}) {
-  const { name, known_for, profile_path } = person;
-  const image = imagePath + profile_path;
-
+export default function Person({ person, handleClick, handleDoubleClick }) {
+  const { name, image } = person;
   const [isCardClicked, setCardClicked] = useState(false);
 
   const cardClickHandler = () => {
     setCardClicked(!isCardClicked);
     handleClick(person);
+    console.log("is it flipped?", person.flipped);
   };
 
   return (
@@ -31,11 +20,9 @@ export default function Person({
         <Image
           src={image}
           alt={`image of ${name}`}
-          // width={360}
-          // height={360}
           fill
           className={`items-center w-full h-full object-cover my-0.5 rounded-md focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
-            flippedCards && flippedCards.includes(name) ? "blur-sm" : ""
+            person.flipped ? "blur-sm" : ""
           }`}
           // className="absolute h-full w-full object-cover rounded-md"
           onClick={() => cardClickHandler()}

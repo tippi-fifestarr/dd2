@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
-const ChatArea = () => {
+const ChatArea = ({ chosenCard }) => {
   const [socket, setSocket] = useState(null);
   const [messageHistory, setMessageHistory] = useState([]);
   const [roomId, setRoomId] = useState('');
@@ -119,7 +119,7 @@ const ChatArea = () => {
   };
   return (
     <div>
-      Socket.IO example
+      {chosenCard.name}
       <div>
         <input type="text" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter room ID" />
         <button onClick={joinRoom}>Join Room</button>
