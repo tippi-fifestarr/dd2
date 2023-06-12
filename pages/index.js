@@ -1,12 +1,16 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, useAddress, Web3Button } from "@thirdweb-dev/react";
+import { isFeatureEnabled } from "@thirdweb-dev/sdk";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import ClaimButton from "../components/ClaimButton";
+import { contractAddress } from "../const/yourDetails";
 import Nft from "../components/Nft";
 // import RankedNFT from "../components/RankedNFT";
 // import Meta from "../components/Meta";
 
 export default function Home() {
+  const address = useAddress(); // Get the user's address
+
   return (
     <>
       {/* <Meta /> */}
@@ -69,10 +73,7 @@ export default function Home() {
               </p>
             </a>
             {/* want to use Link bc internal links */}
-            <Link
-              href="https://dd2-git-gated-page-tippi-fifestarr.vercel.app/login"
-              className={styles.card}
-            >
+            <Link href="/play" className={styles.card}>
               <h2>DD OG Default Deck 🎴 &rarr;</h2>
               <p>
                 Welcome to DDEUX, a game of strategy, mystery, and a dash of

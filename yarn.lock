@@ -1618,6 +1618,16 @@
     "@tanstack/query-core" "4.29.11"
     use-sync-external-store "^1.2.0"
 
+"@thirdweb-dev/auth@^3":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/auth/-/auth-3.1.1.tgz#734b6282dad0ab0d23b622a08bdfa1f621c33bd4"
+  integrity sha512-iB+NR5uavzzbWuFKKXqMA78ejto6tTX+/gf0TOfoAHWCB2G8cCEs1+8gR7GvU2mOpfK/bDtiWMpQbnLGOjo9oQ==
+  dependencies:
+    "@thirdweb-dev/wallets" "0.2.26"
+    cookie "^0.5.0"
+    uuid "^9.0.0"
+    zod "^3.20.2"
+
 "@thirdweb-dev/chains@0.1.20":
   version "0.1.20"
   resolved "https://registry.yarnpkg.com/@thirdweb-dev/chains/-/chains-0.1.20.tgz#db2874c0de34eed78d048b585ed17746ed8be082"
@@ -3263,7 +3273,7 @@ cookie-signature@1.0.6:
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==
 
-cookie@0.5.0:
+cookie@0.5.0, cookie@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==

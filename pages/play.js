@@ -1,6 +1,11 @@
 // pages/play.js
 import { useState, useEffect } from "react";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { useLogout, useUser } from "@thirdweb-dev/react";
+import { getUser } from "../auth.config";
+import checkBalance from "../utils/thirdweb/checkBalance";
 import { getDeck } from "../utils/deck";
+import { useRouter } from "next/router";
 import CardDetail from "../components/CardDetail3";
 import StartModal from "../components/startModal";
 import Sound from "../components/sound";
@@ -15,6 +20,9 @@ import NewNav from "../components/newNav";
 import LevelCompleteModal from "../components/LevelCompleteModal";
 
 function Play({ deckProps }) {
+  const { logout } = useLogout();
+  const { isLoggedIn, isLoading } = useUser();
+  const router = useRouter();
   // We'll keep track of the currently selected card in state
   const [selectedCard, setSelectedCard] = useState({});
   const [cardSelected, setCardSelected] = useState(false);
@@ -53,7 +61,11 @@ function Play({ deckProps }) {
     console.log("Save match history");
     // Implement logic to save match history.
   };
-
+  useEffect(() => {
+    if (!isLoading && !isLoggedIn) {
+      router.push("/");
+    }
+  }, [isLoading, isLoggedIn, router]);
   // tracking the number of flipped cards
   useEffect(() => {
     const flippedCardsCount = deck.filter((card) => card.flipped).length;
@@ -166,8 +178,56 @@ function Play({ deckProps }) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+// const deckProps = await getDeck();
+//   return {
+//     props: {
+//       deckProps,
+//     },
+//   };
+// }
+
+// This gets called on every request
+export async function getServerSideProps(context) {
   const deckProps = await getDeck();
+  const user = await getUser(context.req);
+
+  if (!user) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  // Ensure we are able to generate an auth token using our private key instantiated SDK
+  const PRIVATE_KEY = process.env.THIRDWEB_AUTH_PRIVATE_KEY;
+  if (!PRIVATE_KEY) {
+    throw new Error("You need to add an PRIVATE_KEY environment variable.");
+  }
+
+  // Instantiate our SDK
+  const sdk = ThirdwebSDK.fromPrivateKey(
+    process.env.THIRDWEB_AUTH_PRIVATE_KEY,
+    "mumbai"
+  );
+
+  // Check to see if the user has an NFT
+  const hasNft = await checkBalance(sdk, user.address);
+
+  // If they don't have an NFT, redirect them to the login page
+  if (!hasNft) {
+    console.log("User", user.address, "doesn't have an NFT! Redirecting...");
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  // Finally, return the props
   return {
     props: {
       deckProps,

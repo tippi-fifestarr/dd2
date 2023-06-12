@@ -16,7 +16,8 @@ const ChatArea = ({ chosenCard, finalCard }) => {
 
   useEffect(() => {
     // Create a Socket.IO connection on the client
-    const socket = io("http://localhost:3002");
+    // const socket = io("http://localhost:3002");
+    const socket = io(process.env.NEXT_PUBLIC_SOCKET_LOCATION);
 
     // Listen for custom events or messages
     socket.on("message", (data) => {
