@@ -29,7 +29,11 @@ Step 1. Start Screen.
 - [ ] Post to Lens (discuss integrating)
 - [x] Sockets working to let 2 players chat and ask each other questions
 
+![image](https://github.com/tippi-fifestarr/dd2/assets/62179036/d890d473-9b40-4ecd-963e-fa3ef4516c8f)
+
 ## Getting Started
+
+> ```node server.js``` to start the backend
 
 On `pages/_app.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
 [UI Components](https://portal.thirdweb.com/ui-components) to work.
