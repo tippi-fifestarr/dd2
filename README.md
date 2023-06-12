@@ -1,4 +1,5 @@
 # Token Gated Website
+![image](https://github.com/tippi-fifestarr/dd2/assets/62179036/35e692be-e38d-49e3-9a05-29f7f764de2a)
 
 This project demonstrates how you can restrict content on your website to only those users who own a token of your choice (any ERC-20, ERC-721 or ERC-1155).
 
