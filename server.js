@@ -112,6 +112,42 @@ io.on("connection", (socket) => {
       }
     }
   });
+
+
+
+  socket.on('chosenCardChange', (data) => {
+    let x = data;
+    console.log(x);
+  });
+  
+  // On 'finalCardChange' event
+  socket.on('finalCardChange', (data) => {
+    let x = data;
+    console.log(x);
+  });
+  socket.on('whoWin', (data) => {
+    let x,y,z = data;
+    console.log(x);
+    console.log(y);
+    console.log(z);
+    
+    // if (y === z[0].id){
+    //   console.log("Player 1 wins");
+    //   io.in(data.roomId).emit("message", {
+    //     message: "Player 1 wins",
+    //   });
+    // }
+    // else{
+      console.log("Player 2 wins");
+      io.in(data.roomId).emit("message", {
+        sender: `Server`,
+        message: "Player 2 wins",
+      });
+
+
+    // }
+
+  });
 });
 
 // when the game state determines winner, access the .env.local variable THIRDWEB_AUTH_PRIVATE_KEY

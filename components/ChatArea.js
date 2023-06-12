@@ -11,11 +11,12 @@ const ChatArea = ({ chosenCard, finalCard }) => {
   useEffect(() => {
     // Create a Socket.IO connection on the client
     const socket = io('http://localhost:3002');
-    console.log('fc: ', finalCard);
+
 
     // Listen for custom events or messages
     socket.on('message', (data) => {
       console.log('Client Received message:', data);
+
 
       // Handle the received message
       setMessageHistory(prevMessages => [...prevMessages, data]);
@@ -45,6 +46,19 @@ const ChatArea = ({ chosenCard, finalCard }) => {
   const joinRoom = () => {
     if (socket) {
       socket.emit('joinRoom', roomId);
+      // console.log('chose:', chosenCard);
+      // console.log('fc: ', finalCard[0].id);
+//       chose: 
+// Object { id: 12, type: "character", team: "Demon", name: "Lazy P", origin: "Unknown", weapon: "Rusty Axe", description: "Vape smoking, dank vibes; has axe, will chop.", image: "/images/lazy_p.png", image_provenance: "Tippi + Pat + Stable Diffusion", catchphrase: "Chill bro, it's just a game.", … }
+// ChatArea.js:49:14
+// fc:  
+// Array [ {…} ]
+// ​
+// 0: Object { id: 16, type: "character", team: "Angel", … }
+// ​
+// length: 1
+// ​
+// <prototype>: Array []
     }
   };
 
@@ -122,6 +136,33 @@ const ChatArea = ({ chosenCard, finalCard }) => {
 
 
 
+
+  useEffect(() => {
+
+    if (socket && chosenCard) {
+
+      // socket.emit('chosenCardChange', {roomId: roomId, chosenCard: chosenCard.id});
+      console.log('chosenCard: ', chosenCard);
+    }
+  }, [chosenCard, socket]);
+  
+  useEffect(() => {
+
+    if (socket && finalCard) {
+      console.log('finalCard: ', finalCard);
+
+      // socket.emit('finalCardChange', {roomId: roomId, finalCard: finalCard});
+    }
+  }, [finalCard, socket]);
+
+  useEffect(() => {
+    if (socket && chosenCard && finalCard) {
+      socket.emit('whoWin', {roomId: roomId, chosenCard: chosenCard.id, finalCard: finalCard});
+    }
+  }, [chosenCard, finalCard, socket]);
+  
+
+
   return (
     <div className={`w-fit rounded-xl p-1 mx-2 mb-1 flex flex-col absolute bottom-4 right-4 ${isExpanded ? "bg-slate-600 bg-opacity-80" : ""}`} style={{ zIndex: 1000 }}>
       <div className="text-xs md:text-base lg:text-lg text-slate-200 cursor-pointer mb-2 flex justify-between items-center" onClick={() => setIsExpanded(!isExpanded)}>
@@ -131,6 +172,7 @@ const ChatArea = ({ chosenCard, finalCard }) => {
       {isExpanded && (
         <>
           <h2 className="text-xl font-bold mb-4 text-slate-200">{chosenCard.name}</h2>
+          
 
           <div className="mb-4">
             <input type="text" value={roomId} onChange={(e) => setRoomId(e.target.value)} placeholder="Enter room ID" className="border p-2 mr-2 rounded" />

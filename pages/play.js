@@ -58,10 +58,10 @@ function Play({ deckProps }) {
   useEffect(() => {
     const flippedCardsCount = deck.filter((card) => card.flipped).length;
     setNumFlippedCards(flippedCardsCount);
-    // console.log(
-    //   "unflipped cards",
-    //   deck.filter((card) => !card.flipped)
-    // );
+    console.log(
+      "unflipped cards",
+      deck.filter((card) => !card.flipped)
+    );
 
     // the deckProps, when loaded, should have a cards array that is 20 objects
     if (deck.length - flippedCardsCount === 1) {
