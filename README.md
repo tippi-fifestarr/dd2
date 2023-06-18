@@ -16,19 +16,24 @@ Step 1. Start Screen.
 2. Vote (disabled) => DaDeux? DeDeuce? => Optimistic Governance with Veto
 3. Create => Contribute/Apply => Coming soon
 
-- [ ] merge with original dd repo (web3 branch?)?
+- [x] merge with original dd repo (web3 branch?)?
 - [x] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
 - [x] load the game page wrapped in thirdweb
 - [x] enable the claim button for access key (link to gitbooks documentation)
 - [ ] conditionally render "choose a deck" if user has access key
 - [x] visually & functionally disable placeholder buttons
 - [ ] outro music video in the "detail view" (image and text on time with music)
-- [ ] decide on an open-source license (it should be easy to contribute to and repurpose, but I don't want someone to take this idea and code and compete against me or trick people, which is why we need public ledger of the official spellings for the name of DaDeuce, maybe sell some franchises for each name, and give first dibs to the proposer of that vote, which will be me for the first few probably lol)
+- [x] decide on an open-source license (it should be easy to contribute to and repurpose, but I don't want someone to take this idea and code and compete against me or trick people, which is why we need public ledger of the official spellings for the name of DaDeuce, maybe sell some franchises for each name, and give first dibs to the proposer of that vote, which will be me for the first few probably lol)
 - [ ] write warning for deck uploader that ownership rules haven't been finalized
 - [ ] add the UNOFFICIAL deck creator (maker) function
 - [ ] Post to Lens (discuss integrating)
+- [x] Sockets working to let 2 players chat and ask each other questions
+
+![image](https://github.com/tippi-fifestarr/dd2/assets/62179036/d890d473-9b40-4ecd-963e-fa3ef4516c8f)
 
 ## Getting Started
+
+> ```node server.js``` to start the backend
 
 On `pages/_app.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
 [UI Components](https://portal.thirdweb.com/ui-components) to work.

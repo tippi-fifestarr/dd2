@@ -54,7 +54,7 @@ export default function Cards({
     setChosenCard(person);
     setCardChosen(true);
     choose();
-    console.log("player chose card: ", person.name);
+    // console.log("player chose card: ", person.name);
   };
 
   let currentSFX = Constants.sfx;
@@ -68,9 +68,9 @@ export default function Cards({
     if (!cardChosen) {
       cardChooser(person);
     } else {
-      console.log(
-        "card already chosen, so this causes the secondary effect of doubleclicking, namely flipping the card"
-      );
+      // console.log(
+      //   "card already chosen, so this causes the secondary effect of doubleclicking, namely flipping the card"
+      // );
       setSfxIndex(0);
       flip();
       handleFlip(person);

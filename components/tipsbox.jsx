@@ -1,7 +1,3 @@
-// "use client";
-
-import { useEffect } from "react";
-
 export default function Tipsbox({
   chosenCard,
   tips,
@@ -12,11 +8,11 @@ export default function Tipsbox({
   // and when we want to show the number of cards remaining, we can just do cardsRemaining.length
   // and when we want to display the final cards, we can just output the cardsRemaining and forget about finalCard
 
-  console.log("array?", tips);
+  // console.log("array?", tips);
   let isChosen = chosenCard.name != "none" ? true : false;
-  useEffect(() => {
-    console.log(cardsRemaining);
-  }, [cardsRemaining]);
+  // useEffect(() => {
+  //   console.log(cardsRemaining);
+  // }, [cardsRemaining]);
   return (
     <div className="">
       {!isChosen ? (
