@@ -43,7 +43,9 @@ function Play({ deckProps }) {
     setDeck((prev) => {
       return prev.map((c) => {
         if (c.id === card.id) {
-          return { ...c, flipped: !c.flipped };
+          const newCard = { ...c, flipped: !c.flipped };
+          console.log("card flipped", newCard);
+          return newCard;
         } else {
           return c;
         }
@@ -140,6 +142,7 @@ function Play({ deckProps }) {
         volume={volume}
         deck={deck}
         handleFlip={handleFlip}
+        setDeck={setDeck}
       />
       <footer className="my-2 text-center transition-colors duration-200">
         <div className="flex flex-row justify-around">

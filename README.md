@@ -16,6 +16,8 @@ Step 1. Start Screen.
 2. Vote (disabled) => DaDeux? DeDeuce? => Optimistic Governance with Veto
 3. Create => Contribute/Apply => Coming soon
 
+- [ ] conditionally show the chat/rankedChat option only if they have RankedAccess, otherwise display a purchase page.
+- [ ] turn chatarea into a turn-based UI component that only shows what's necessary and allowed at each turn
 - [x] merge with original dd repo (web3 branch?)?
 - [x] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
 - [x] load the game page wrapped in thirdweb
@@ -33,7 +35,7 @@ Step 1. Start Screen.
 
 ## Getting Started
 
-> ```node server.js``` to start the backend
+> `node server.js` to start the backend
 
 On `pages/_app.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
 [UI Components](https://portal.thirdweb.com/ui-components) to work.

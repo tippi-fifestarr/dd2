@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
+// turnbased todo
+// rename icon to Ranked Battle, on expanding, ask for room id and require a player handle
+// on joining, ask for player handle
+// after joining, show player handles and room id (remove join room button)
+// prompt user to choose a card
+// after choosing a card, show the card and prompt user to ask a question
+// show the user the other players question and give them the option to answer yes or no
+// after answering, show the user the other players answer
+// after showing the user the other players answer, prompt the user to ask a question
+// repeat until the game is over
+// after the level, allow user to save match history
+
 const ChatArea = ({ chosenCard, finalCard }) => {
   const [socket, setSocket] = useState(null);
   const [messageHistory, setMessageHistory] = useState([]);
