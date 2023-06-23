@@ -28,7 +28,7 @@ function CardDetail({ selectedCard, cardSelected }) {
                 your character!
               </p>
             ) : (
-              <div className="flex flex-col m-2">
+              <div className="flex flex-col md:m-2">
                 {Object.keys(selectedCard).map((key) => {
                   // Avoid rendering the 'id' field and 'attributes' field, which needs to be handled separately
                   if (
