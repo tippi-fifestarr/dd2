@@ -26,7 +26,7 @@ let playerCounter = {};
 io.on("connection", (socket) => {
   console.log("A client connected");
 
-  socket.on("joinRoom", (roomId) => {
+  socket.on("joinRoom", (roomId, playerName) => {
     if (!rooms[roomId]) {
       rooms[roomId] = [];
       playerCounter[roomId] = 0; // initialize player counter for this room
@@ -37,6 +37,7 @@ io.on("connection", (socket) => {
 
     // Store the player number on the socket
     socket.playerNumber = playerCounter[roomId];
+    socket.playerName = playerName;
 
     // Add the socket to the room's array
     rooms[roomId].push(socket.id);
@@ -50,7 +51,7 @@ io.on("connection", (socket) => {
     // Send a confirmation message back to the client
     io.to(roomId).emit("message", {
       sender: "Server",
-      message: `Player${socket.playerNumber} joined room ${roomId}`,
+      message: `Player${socket.playerNumber}: ${socket.playerName} joined room ${roomId}`,
     });
     console.log(`Player${socket.playerNumber} joined room ${roomId}`);
   });

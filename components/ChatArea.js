@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-// turnbased todo
+// turnbased TODO
 // rename icon to Ranked Battle, on expanding, ask for room id and require a player handle
 // on joining, ask for player handle
 // after joining, show player handles and room id (remove join room button)
@@ -13,18 +13,43 @@ import io from "socket.io-client";
 // repeat until the game is over
 // after the level, allow user to save match history
 
+// game states to keep track of users' status (maybe refactor to useReducer context or root page)
+const GameStates = {
+  NOT_PLAYING: "NOT_PLAYING",
+  STARTING: "STARTING",
+  CHOOSING_CARD: "CHOOSING_CARD",
+  ASKING_QUESTION: "ASKING_QUESTION",
+  ANSWERING_QUESTION: "ANSWERING_QUESTION",
+  GUESSING_CARD: "GUESSING_CARD",
+  SAVING_MATCH_HISTORY: "SAVING_MATCH_HISTORY",
+};
+
 const ChatArea = ({ chosenCard, finalCard }) => {
   const [socket, setSocket] = useState(null);
   const [messageHistory, setMessageHistory] = useState([]);
   const [roomId, setRoomId] = useState("");
   const [message, setMessage] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
+  const [gameState, setGameState] = useState(GameStates.NOT_PLAYING);
+  const [playerHandles, setPlayerHandles] = useState(["", ""]);
+  const [playerHandle, setPlayerHandle] = useState("");
+  // not sure about this one
+  const [turn, setTurn] = useState(false); // true = this user's turn, false = other user's turn
 
   // useeffect to console log the final card being sent in
   useEffect(() => {
     console.log("final card: ", finalCard);
     console.log("cc: ", chosenCard);
   }, [finalCard]);
+
+  useEffect(
+    (playerHandle) => {
+      console.log("first player handle: ", playerHandle);
+      setPlayerHandles([playerHandle, ""]);
+      console.log("player handles: ", playerHandles);
+    },
+    [playerHandle, playerHandles]
+  );
 
   useEffect(() => {
     // Create a Socket.IO connection on the client
@@ -69,6 +94,7 @@ const ChatArea = ({ chosenCard, finalCard }) => {
   const joinRoom = () => {
     if (socket) {
       socket.emit("joinRoom", roomId);
+      setGameState(GameStates.STARTING);
     }
   };
 
@@ -151,79 +177,113 @@ const ChatArea = ({ chosenCard, finalCard }) => {
         className="text-xs md:text-base lg:text-lg text-slate-200 cursor-pointer mb-2 flex justify-between items-center"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        💬 Chat {isExpanded ? <span>&#9650;</span> : <span>&#9660;</span>}
+        💬 {!isExpanded ? "Play Ranked!" : "Ranked Match"} 🪜{" "}
+        {isExpanded ? (
+          <>
+            <button
+              onClick={disconnect}
+              className="bg-gray-500 text-white p-2 rounded mb-4"
+            >
+              Quit Match!
+            </button>
+            <span className="rounded-xl bg-green-400 p-1">&#9650;</span>
+          </>
+        ) : (
+          <span>&#9660;</span>
+        )}{" "}
       </div>
 
       {isExpanded && (
         <>
-          <h2 className="text-xl font-bold mb-4 text-slate-200">
-            {chosenCard.name}
-          </h2>
+          {gameState === GameStates.NOT_PLAYING && (
+            <div className="mb-4">
+              <input
+                type="text"
+                value={playerHandle}
+                onChange={(e) => setPlayerHandle(e.target.value)}
+                placeholder="Enter your handle"
+                className="border p-2 mr-2 rounded"
+              />
+              <input
+                type="text"
+                value={roomId}
+                onChange={(e) => setRoomId(e.target.value)}
+                placeholder="Enter room ID"
+                className="border p-2 mr-2 rounded"
+              />
+              <button
+                onClick={joinRoom}
+                className="bg-blue-500 text-white p-2 rounded"
+              >
+                Join Room
+              </button>
+            </div>
+          )}
+          {gameState === GameStates.STARTING && (
+            <>
+              <h2 className="text-xl font-bold mb-4 text-slate-200">
+                {chosenCard.name}
+              </h2>
 
-          <div className="mb-4">
-            <input
-              type="text"
-              value={roomId}
-              onChange={(e) => setRoomId(e.target.value)}
-              placeholder="Enter room ID"
-              className="border p-2 mr-2 rounded"
-            />
-            <button
-              onClick={joinRoom}
-              className="bg-blue-500 text-white p-2 rounded"
-            >
-              Join Room
-            </button>
-          </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  value={roomId}
+                  onChange={(e) => setRoomId(e.target.value)}
+                  placeholder="Enter room ID"
+                  className="border p-2 mr-2 rounded"
+                />
+                <button
+                  onClick={joinRoom}
+                  className="bg-blue-500 text-white p-2 rounded"
+                >
+                  Join Room
+                </button>
+              </div>
 
-          <div className="mb-4">
-            <input
-              type="text"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Enter message"
-              className="border p-2 mr-2 rounded"
-            />
-            <button
-              onClick={sendMessage}
-              className="bg-green-500 text-white p-2 rounded"
-            >
-              Send Message
-            </button>
-            <button
-              onClick={questionFinished}
-              className="bg-yellow-500 text-white p-2 rounded"
-            >
-              Finish Question
-            </button>
-            <button
-              onClick={answerYes}
-              className="bg-green-500 text-white p-2 rounded"
-            >
-              Answer Yes
-            </button>
-            <button
-              onClick={answerNo}
-              className="bg-red-500 text-white p-2 rounded"
-            >
-              Answer No
-            </button>
-          </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Enter message"
+                  className="border p-2 mr-2 rounded"
+                />
+                <button
+                  onClick={sendMessage}
+                  className="bg-green-500 text-white p-2 rounded"
+                >
+                  Send Message
+                </button>
+                <button
+                  onClick={questionFinished}
+                  className="bg-yellow-500 text-white p-2 rounded"
+                >
+                  Finish Question
+                </button>
+                <button
+                  onClick={answerYes}
+                  className="bg-green-500 text-white p-2 rounded"
+                >
+                  Answer Yes
+                </button>
+                <button
+                  onClick={answerNo}
+                  className="bg-red-500 text-white p-2 rounded"
+                >
+                  Answer No
+                </button>
+              </div>
 
-          <button
-            onClick={disconnect}
-            className="bg-gray-500 text-white p-2 rounded mb-4"
-          >
-            Exit
-          </button>
-
-          <div className="mt-4 border p-4 rounded overflow-auto h-64">
-            {messageHistory.map((messageData, index) => (
-              <p key={index} className="mb-2">
-                <strong>{messageData.sender}:</strong> {messageData.message}
-              </p>
-            ))}
-          </div>
+              <div className="mt-4 border p-4 rounded overflow-auto h-64">
+                {messageHistory.map((messageData, index) => (
+                  <p key={index} className="mb-2">
+                    <strong>{messageData.sender}:</strong> {messageData.message}
+                  </p>
+                ))}
+              </div>
+            </>
+          )}
         </>
       )}
     </div>
