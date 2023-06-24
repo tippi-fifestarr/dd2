@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
+import Draggable from "react-draggable"; // this line is new, now i need to implement the rest of it
 
-// turnbased TODO
-// rename icon to Ranked Battle, on expanding, ask for room id and require a player handle
-// on joining, ask for player handle
-// after joining, show player handles and room id (remove join room button)
-// prompt user to choose a card
-// after choosing a card, show the card and prompt user to ask a question
-// show the user the other players question and give them the option to answer yes or no
-// after answering, show the user the other players answer
-// after showing the user the other players answer, prompt the user to ask a question
-// repeat until the game is over
-// after the level, allow user to save match history
-
-// game states to keep track of users' status (maybe refactor to useReducer context or root page)
+// game states to keep track of users' status (maybe refactor to useReducer context or root page?)
 const GameStates = {
   NOT_PLAYING: "NOT_PLAYING",
   STARTING: "STARTING",
@@ -175,150 +164,155 @@ const ChatArea = ({ chosenCard, finalCard }) => {
   };
 
   return (
-    <div
-      className={`w-fit rounded-xl p-1 mx-2 mb-1 flex flex-col absolute bottom-4 right-4 ${
-        isExpanded ? "bg-slate-600 bg-opacity-80" : "bg-slate-500 bg-opacity-50"
-      }`}
-      style={{ zIndex: 1000 }}
-    >
+    <Draggable>
       <div
-        className="text-xs md:text-base lg:text-lg text-slate-200 cursor-pointer mb-2 flex justify-between items-center"
-        onClick={() => setIsExpanded(!isExpanded)}
+        className={`w-fit rounded-xl p-1 mx-2 mb-1 flex flex-col absolute bottom-4 right-4 ${
+          isExpanded
+            ? "bg-slate-600 bg-opacity-80"
+            : "bg-slate-500 bg-opacity-50"
+        }`}
+        style={{ zIndex: 1000 }}
       >
-        💬 {!isExpanded ? "Play Ranked!" : "Ranked Match"} 🪜{" "}
-        {isExpanded ? (
-          <>
-            {/* <button
+        <div
+          className="text-xs md:text-base lg:text-lg text-slate-200 cursor-pointer mb-2 flex justify-between items-center"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          💬 {!isExpanded ? "Play Ranked!" : "Ranked Match"} 🪜{" "}
+          {isExpanded ? (
+            <>
+              {/* <button
               onClick={disconnect}
               className="bg-gray-500 text-white p-2 rounded mb-4"
             >
               Quit Match!
             </button> */}
-            {gameState === GameStates.CHOOSING_CARD && <p>choose!</p>}
-            {gameState === GameStates.ASKING_QUESTION && (
-              <p>{chosenCard.name ? chosenCard.name : null} asking...who? </p>
-            )}
+              {gameState === GameStates.CHOOSING_CARD && <p>choose!</p>}
+              {gameState === GameStates.ASKING_QUESTION && (
+                <p>{chosenCard.name ? chosenCard.name : null} asking...who? </p>
+              )}
 
-            <span className="rounded-xl bg-green-400 p-1">&#9650;</span>
-          </>
-        ) : (
-          <span>&#9660;</span>
-        )}{" "}
-      </div>
-
-      {isExpanded && (
-        <>
-          {gameState === GameStates.NOT_PLAYING && (
-            <div className="mb-4">
-              <input
-                type="text"
-                value={playerHandle}
-                onChange={(e) => setPlayerHandle(e.target.value)}
-                placeholder="Enter your handle"
-                className="border p-2 mr-2 rounded"
-              />
-              <input
-                type="text"
-                value={roomId}
-                onChange={(e) => setRoomId(e.target.value)}
-                placeholder="Enter room ID"
-                className="border p-2 mr-2 rounded"
-              />
-              <button
-                onClick={joinRoom}
-                className="bg-blue-500 text-white p-2 rounded"
-              >
-                Join Room
-              </button>
-            </div>
-          )}
-          {gameState === GameStates.STARTING && (
-            <>
-              <h2 className="text-xl font-bold mb-4 text-slate-200">
-                Fun! Choose a card so this doesnt say: {chosenCard.name}
-              </h2>
-              <button
-                onClick={chooseCard}
-                className="bg-blue-500 text-white p-2 rounded"
-              >
-                Ok. <strong>choose by double clicking a card.</strong>
-              </button>
-
-              <div className="mb-4">
-                <p>
-                  Room ID: <span className="font-bold">{roomId}</span>
-                </p>
-                <button
-                  onClick={disconnect}
-                  className="bg-red-500 text-white p-2 rounded"
-                >
-                  Leave Room
-                </button>
-              </div>
+              <span className="rounded-xl bg-green-400 p-1">&#9650;</span>
             </>
-          )}
-          {gameState === GameStates.CHOOSING_CARD && (
-            <>
-              <div>choose a card already!</div>
-            </>
-          )}
-          {gameState === GameStates.ASKING_QUESTION && (
-            <>
+          ) : (
+            <span>&#9660;</span>
+          )}{" "}
+        </div>
+
+        {isExpanded && (
+          <>
+            {gameState === GameStates.NOT_PLAYING && (
               <div className="mb-4">
                 <input
                   type="text"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="ASK A QUESTION? <-- LIKE THIS"
+                  value={playerHandle}
+                  onChange={(e) => setPlayerHandle(e.target.value)}
+                  placeholder="Enter your handle"
+                  className="border p-2 mr-2 rounded"
+                />
+                <input
+                  type="text"
+                  value={roomId}
+                  onChange={(e) => setRoomId(e.target.value)}
+                  placeholder="Enter room ID"
                   className="border p-2 mr-2 rounded"
                 />
                 <button
-                  onClick={sendMessage}
-                  className="bg-green-500 text-white p-2 rounded"
+                  onClick={joinRoom}
+                  className="bg-blue-500 text-white p-2 rounded"
                 >
-                  Send YES/NO Question
+                  Join Room
                 </button>
               </div>
-            </>
-          )}
-          {gameState === GameStates.ANSWERING_QUESTION && (
-            <>
-              <div className="mb-4">
-                <p className="bg-green-300  text-black p-2 rounded-sm">
-                  question here
-                </p>
-                {/* <button
+            )}
+            {gameState === GameStates.STARTING && (
+              <>
+                <h2 className="text-xl font-bold mb-4 text-slate-200">
+                  Fun! Choose a card so this doesnt say: {chosenCard.name}
+                </h2>
+                <button
+                  onClick={chooseCard}
+                  className="bg-blue-500 text-white p-2 rounded"
+                >
+                  Ok. <strong>choose by double clicking a card.</strong>
+                </button>
+
+                <div className="mb-4">
+                  <p>
+                    Room ID: <span className="font-bold">{roomId}</span>
+                  </p>
+                  <button
+                    onClick={disconnect}
+                    className="bg-red-500 text-white p-2 rounded"
+                  >
+                    Leave Room
+                  </button>
+                </div>
+              </>
+            )}
+            {gameState === GameStates.CHOOSING_CARD && (
+              <>
+                <div>choose a card already!</div>
+              </>
+            )}
+            {gameState === GameStates.ASKING_QUESTION && (
+              <>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="ASK A QUESTION? <-- LIKE THIS"
+                    className="border p-2 mr-2 rounded"
+                  />
+                  <button
+                    onClick={sendMessage}
+                    className="bg-green-500 text-white p-2 rounded"
+                  >
+                    Send YES/NO Question
+                  </button>
+                </div>
+              </>
+            )}
+            {gameState === GameStates.ANSWERING_QUESTION && (
+              <>
+                <div className="mb-4">
+                  <p className="bg-green-300  text-black p-2 rounded-sm">
+                    question here
+                  </p>
+                  {/* <button
                   onClick={questionFinished}
                   className="bg-yellow-500 text-white p-2 rounded"
                 >
                   Finish Question
                 </button> */}
-                <button
-                  onClick={answerYes}
-                  className="bg-green-500 text-white p-2 rounded"
-                >
-                  Answer Yes
-                </button>
-                <button
-                  onClick={answerNo}
-                  className="bg-red-500 text-white p-2 rounded"
-                >
-                  Answer No
-                </button>
-              </div>
+                  <button
+                    onClick={answerYes}
+                    className="bg-green-500 text-white p-2 rounded"
+                  >
+                    Answer Yes
+                  </button>
+                  <button
+                    onClick={answerNo}
+                    className="bg-red-500 text-white p-2 rounded"
+                  >
+                    Answer No
+                  </button>
+                </div>
 
-              <div className="mt-4 border p-4 rounded overflow-auto h-64">
-                {messageHistory.map((messageData, index) => (
-                  <p key={index} className="mb-2">
-                    <strong>{messageData.sender}:</strong> {messageData.message}
-                  </p>
-                ))}
-              </div>
-            </>
-          )}
-        </>
-      )}
-    </div>
+                <div className="mt-4 border p-4 rounded overflow-auto h-64">
+                  {messageHistory.map((messageData, index) => (
+                    <p key={index} className="mb-2">
+                      <strong>{messageData.sender}:</strong>{" "}
+                      {messageData.message}
+                    </p>
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </Draggable>
   );
 };
 
