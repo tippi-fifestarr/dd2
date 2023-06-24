@@ -11,9 +11,9 @@
     "deploy": "next build && next export && npx thirdweb@latest upload out"
   },
   "dependencies": {
+    "@thirdweb-dev/auth": "^3",
     "@thirdweb-dev/react": "^3.12.2",
     "@thirdweb-dev/sdk": "^3.10.17",
-    "@thirdweb-dev/auth": "^3",
     "autoprefixer": "^10.4.14",
     "dotenv": "^16.1.4",
     "ethers": "^5",
@@ -22,6 +22,7 @@
     "postcss": "^8.4.23",
     "react": "^18.2",
     "react-dom": "^18.2",
+    "react-draggable": "^4.4.5",
     "socket.io": "^4.6.2",
     "socket.io-client": "^4.6.2",
     "tailwindcss": "^3.3.2",
