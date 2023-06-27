@@ -17,7 +17,8 @@ Step 1. Start Screen.
 3. Create => Contribute/Apply => Coming soon
 
 - [ ] conditionally show the chat/rankedChat option only if they have RankedAccess, otherwise display a purchase page.
-- [ ] turn chatarea into a turn-based UI component that only shows what's necessary and allowed at each turn
+- [ ] turn chatarea into a turn-based UI component that only shows what's necessary and allowed at each turn (see branch "turnbased") 
+- [ ] finish draggable "buy ranked play access key $2" component that knows if the user has the access key and when they do, is the way to play.
 - [x] merge with original dd repo (web3 branch?)?
 - [x] use the existing template structure to write new copy explaining the game and prompting the user to "choose a deck"
 - [x] load the game page wrapped in thirdweb
