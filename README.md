@@ -33,6 +33,12 @@ Step 1. Start Screen.
 
 ![image](https://github.com/tippi-fifestarr/dd2/assets/62179036/d890d473-9b40-4ecd-963e-fa3ef4516c8f)
 
+### Start Contributing
+
+Step 1. Decide what you want / can help.
+Step 2. Make an issue and ask a y/n question.
+Step 3. Profit.
+
 ## Getting Started
 
 > `node server.js` to start the backend
