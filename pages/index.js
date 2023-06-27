@@ -1,11 +1,34 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import {
+  ConnectWallet,
+  useAddress,
+  Web3Button,
+  useNetworkMismatch,
+  useNetwork,
+  ChainId,
+} from "@thirdweb-dev/react";
+import { isFeatureEnabled } from "@thirdweb-dev/sdk";
+import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import ClaimButton from "../components/ClaimButton";
+import { contractAddress } from "../const/yourDetails";
 import Nft from "../components/Nft";
+// import RankedNFT from "../components/RankedNFT";
 // import Meta from "../components/Meta";
 
 export default function Home() {
+  const address = useAddress(); // Get the user's address
+  const [, switchNetwork] = useNetwork();
+  const isWrongNetwork = useNetworkMismatch();
+
+  useEffect(() => {
+    if (isWrongNetwork && switchNetwork) {
+      // setTimeout 2 seconds delay and switch to mumbai
+      setTimeout(() => {
+        switchNetwork(ChainId.Mumbai);
+      }, 2 * 1000);
+    }
+  }, [address, isWrongNetwork, switchNetwork]);
   return (
     <>
       {/* <Meta /> */}
@@ -45,9 +68,31 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col items-center justify-center min-h-fit">
-            <ConnectWallet btnTitle="Connect d' wallet" />
+            <div
+              className={
+                isWrongNetwork
+                  ? " bg-red-700 m-2 p-2 rounded-md"
+                  : " bg-slate-300 m-2 p-2 rounded-md"
+              }
+            >
+              <ConnectWallet
+                btnTitle="Connect d' wallet"
+                modalTitle="DDEUX Mumbai Login"
+                // dropdownPosition={{
+                //   side: "bottom", // "top" | "bottom" | "left" | "right";
+                //   align: "end", // "start" | "center" | "end";
+                // }}
+                accentColor="#f213a4"
+                theme="dark"
+              />
+              {isWrongNetwork ? (
+                <div className="text-red-100 m-1 p-1">
+                  Please switch to the Mumbai testnet
+                </div>
+              ) : null}
+            </div>
             <Nft />
-            <ClaimButton />
+            <ClaimButton className="m-5 p-2" />
           </div>
           <h1 className={styles.description}>
             ^ Free Access Key ^ <br /> 👇 Access these: 👇{" "}
@@ -68,15 +113,19 @@ export default function Home() {
               </p>
             </a>
             {/* want to use Link bc internal links */}
-            <Link
-              href="https://dd2-git-gated-page-tippi-fifestarr.vercel.app/login"
-              className={styles.card}
-            >
+            <Link href="/play" className={styles.card}>
               <h2>DD OG Default Deck 🎴 &rarr;</h2>
               <p>
-                If no deck: &quot;Collect and play with the *OG Web3 DD, free
-                forever!*&quot; if OGDD: &quot;Play now with the OG Web3
-                DD!&quot;
+                Welcome to DDEUX, a game of strategy, mystery, and a dash of
+                luck! Round 1 - Guess Who: In the first round, you&apos;ll be
+                presented with a deck of 20 cards, each featuring a unique
+                character or location. Your goal is to guess which card your
+                friend has chosen, using only yes or no questions. You can ask
+                about anything you see on the card - the character&apos;s
+                attributes, their origin, their catchphrase - anything that will
+                help you narrow down the possibilities (double-click to flip the
+                card&apos;s you&apos;ve eliminated). But remember, you only have
+                20 questions to identify the card!
               </p>
             </Link>
             {/* want to use Link bc internal links */}
@@ -91,6 +140,7 @@ export default function Home() {
               </p>
             </Link>
           </div>
+          {/* <RankedNFT /> */}
         </main>
       </div>
     </>

@@ -1,6 +1,7 @@
 import { ThirdwebProvider, ChainId, useContract } from "@thirdweb-dev/react";
 import "../styles/globals.css";
 import { Gorditas } from "next/font/google";
+import { domainName } from "../const/yourDetails";
 import Meta from "../components/Meta";
 
 const gorditas = Gorditas({
@@ -13,7 +14,13 @@ const activeChain = "mumbai";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThirdwebProvider activeChain={activeChain}>
+    <ThirdwebProvider
+      activeChain={activeChain}
+      authConfig={{
+        domain: domainName,
+        authUrl: "/api/auth",
+      }}
+    >
       <Meta />
       <main className={`${gorditas.variable}`}>
         <Component {...pageProps} />

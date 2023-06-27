@@ -1,0 +1,9 @@
+1. Ranked Play
+2. Access Key NFT $2 Chainlink Price 721 
+3. RankedMatches.sol --> roles that only let backend wallet talk to it
+4. Backend will send into ranked matches users address and the users details
+5. RM.sol checks if they  have the NFT
+6. Time of last match recorded 
+7. The other data
+8. BalanceOf ranked key
+

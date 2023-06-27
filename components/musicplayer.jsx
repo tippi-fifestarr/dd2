@@ -5,7 +5,7 @@ export default function MusicPlayer({ songs, selectedSongIndex }) {
 
   const toggleMute = () => {
     setIsMuted((prevIsMuted) => !prevIsMuted);
-    console.log(songs[selectedSongIndex].src);
+    // console.log(songs[selectedSongIndex].src);
   };
 
   return (
